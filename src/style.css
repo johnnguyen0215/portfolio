@@ -1,18 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background:
     linear-gradient(
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url('./assets/dev-bg.jpg') no-repeat center center;
+    url('./assets/dev-bg.jpg') no-repeat fixed center;
   background-size: cover;
   height: 100vh;
   width: 100%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .ghost-button {
-  display: inline-block;
-  font-family: 'Raleway', sans-serif;;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
   width: 200px;
   font-weight: bold;
   padding: 8px;
@@ -33,8 +51,22 @@
               color 0.3s ease-in;
 }
 
+.ghost-button span {
+  margin-left: 20px;
+}
+
+.ghost-button .material-icons {
+  margin-left: 8px;
+}
+
 .intro-text {
   color: #fff;
-  font-family: 'Raleway', sans-serif;;
+  font-family: 'Raleway', sans-serif;
   font-size: 32pt;
+}
+
+#about {
+  height: 500px;
+  width: 100%;
+  background-color: blue;
 }
