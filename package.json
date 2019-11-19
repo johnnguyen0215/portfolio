@@ -1,0 +1,24 @@
+{
+  "name": "john-nguyen-portfolio",
+  "version": "1.0.0",
+  "description": "John Nguyen's portfolio app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/johnnguyen0215/portfolio.git"
+  },
+  "keywords": [
+    "john",
+    "nguyen",
+    "portfolio"
+  ],
+  "author": "John Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnnguyen0215/portfolio/issues"
+  },
+  "homepage": "https://github.com/johnnguyen0215/portfolio#readme"
+}
