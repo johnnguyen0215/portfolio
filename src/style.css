@@ -59,6 +59,21 @@ body {
   margin-left: 8px;
 }
 
+.ghost-button .arrow-down {
+  background: url('./assets/icons/chevron-bottom.svg');
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+}
+
+.ghost-button .chevron-bottom {
+  fill: #fff;
+}
+
+.ghost-button svg {
+  fill: #fff;
+}
+
 .intro-text {
   color: #fff;
   font-family: 'Raleway', sans-serif;
