@@ -26,6 +26,7 @@ body {
 }
 
 .ghost-button {
+  margin-top: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -55,29 +56,33 @@ body {
   margin-left: 20px;
 }
 
-.ghost-button .material-icons {
-  margin-left: 8px;
+.ghost-button-text {
+  margin-right: 20px;
 }
 
-.ghost-button .arrow-down {
-  background: url('./assets/icons/chevron-bottom.svg');
-  width: 20px;
-  height: 20px;
-  background-size: 20px 20px;
-}
-
-.ghost-button .chevron-bottom {
+.ghost-button .chevron {
   fill: #fff;
+  height: 15px;
+  width: 15px;
 }
 
-.ghost-button svg {
-  fill: #fff;
+.ghost-button:hover .chevron {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+  fill: #000;
 }
 
 .intro-text {
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-size: 35px;
+  margin-bottom: 10px;
+}
+
+#home .divider {
+  width: 320px;
+  height: 2px;
+  background-color: #fff;
 }
 
 #about {
