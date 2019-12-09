@@ -4,7 +4,8 @@
   "description": "John Nguyen's portfolio app",
   "main": "src/index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "scss": "node-sass --watch src/scss -o src/css"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/johnnguyen0215/portfolio#readme",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "node-sass": "^4.13.0"
   }
 }
