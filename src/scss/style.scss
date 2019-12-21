@@ -91,7 +91,31 @@ body {
 }
 
 #about {
-  height: 500px;
+  height: 1000px;
   width: 100%;
   background-color: $snow-drift;
+}
+
+.navbar {
+  background-color: $ebony-clay;
+  border-top: 2px solid $shamrock;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  .nav-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    color: $snow-drift;
+
+    &:hover {
+      color: $shamrock;
+    }
+
+    &.active {
+      color: $shamrock;
+    }
+  }
 }

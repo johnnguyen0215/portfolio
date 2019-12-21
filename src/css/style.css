@@ -61,6 +61,21 @@ body {
       fill: #000; }
 
 #about {
-  height: 500px;
+  height: 1000px;
   width: 100%;
   background-color: #F9FBFA; }
+
+.navbar {
+  background-color: #283345;
+  border-top: 2px solid #2CBCB1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .navbar .nav-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase; }
+  .navbar .nav-link {
+    color: #F9FBFA; }
+    .navbar .nav-link:hover {
+      color: #2CBCB1; }
+    .navbar .nav-link.active {
+      color: #2CBCB1; }
