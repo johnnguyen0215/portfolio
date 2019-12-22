@@ -6,6 +6,10 @@ body {
   right: 0;
   bottom: 0; }
 
+.section-header {
+  font-weight: 600;
+  font-size: 4em; }
+
 #home {
   display: flex;
   flex-direction: column;
@@ -19,7 +23,8 @@ body {
   vertical-align: middle; }
   #home .intro-text {
     color: #fff;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
     font-size: 35px;
     margin-bottom: 10px; }
   #home .divider {
@@ -32,7 +37,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
   width: 200px;
   font-weight: bold;
@@ -42,7 +47,7 @@ body {
   text-align: center;
   outline: none;
   text-decoration: none;
-  transition: background-color 0.2s ease-out, color 0.2s ease-out; }
+  transition: background-color 0.2s ease-out, color 0.2s ease-out; }
   .ghost-button .button-text {
     margin-right: 20px; }
   .ghost-button .chevron {
@@ -55,7 +60,7 @@ body {
   .ghost-button:hover {
     background-color: #fff;
     color: #000;
-    transition: background-color 0.3s ease-in, color 0.3s ease-in; }
+    transition: background-color 0.3s ease-in, color 0.3s ease-in; }
     .ghost-button:hover .chevron {
       transform: rotate(90deg);
       fill: #000; }
@@ -63,19 +68,23 @@ body {
 #about {
   height: 1000px;
   width: 100%;
-  background-color: #F9FBFA; }
+  background-color: #f9fbfa; }
 
 .navbar {
   background-color: #283345;
-  border-top: 2px solid #2CBCB1;
+  border-top: 2px solid #2cbcb1;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .navbar.-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0; }
   .navbar .nav-item {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 15px;
     text-transform: uppercase; }
   .navbar .nav-link {
-    color: #F9FBFA; }
+    color: #f9fbfa; }
     .navbar .nav-link:hover {
-      color: #2CBCB1; }
+      color: #2cbcb1; }
     .navbar .nav-link.active {
-      color: #2CBCB1; }
+      color: #2cbcb1; }

@@ -1,7 +1,7 @@
-$snow-drift: #F9FBFA;
-$shamrock: #2CBCB1;
-$hippie-blue: #65A6BA;
-$tapa: #7B776F;
+$snow-drift: #f9fbfa;
+$shamrock: #2cbcb1;
+$hippie-blue: #65a6ba;
+$tapa: #7b776f;
 $ebony-clay: #283345;
 
 body {
@@ -13,17 +13,18 @@ body {
   bottom: 0;
 }
 
+.section-header {
+  font-weight: 600;
+  font-size: 4em;
+}
+
 #home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url('../assets/images/dev-bg.jpg') no-repeat fixed center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/images/dev-bg.jpg") no-repeat fixed center;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -32,7 +33,8 @@ body {
 
   .intro-text {
     color: #fff;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
     font-size: 35px;
     margin-bottom: 10px;
   }
@@ -49,7 +51,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
   width: 200px;
   font-weight: bold;
@@ -59,8 +61,7 @@ body {
   text-align: center;
   outline: none;
   text-decoration: none;
-  transition: background-color 0.2s ease-out,
-              color 0.2s ease-out;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 
   .button-text {
     margin-right: 20px;
@@ -80,8 +81,7 @@ body {
   &:hover {
     background-color: #fff;
     color: #000;
-    transition: background-color 0.3s ease-in,
-                color 0.3s ease-in;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
 
     .chevron {
       transform: rotate(90deg);
@@ -99,10 +99,16 @@ body {
 .navbar {
   background-color: $ebony-clay;
   border-top: 2px solid $shamrock;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  &.-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
 
   .nav-item {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 15px;
     text-transform: uppercase;
   }
