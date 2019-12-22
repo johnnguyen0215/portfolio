@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/johnnguyen0215/portfolio#readme",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.0"
   }

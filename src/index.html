@@ -19,14 +19,17 @@
       href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="../node_modules/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
     <section id="home" class="parallax-container">
-      <div class="intro-text">John E. Nguyen</div>
-      <div class="divider"></div>
-      <div class="intro-text">Software Engineer</div>
+      <div class="intro-text animated fadeInLeft fast">John E. Nguyen</div>
+      <div class="divider animated fadeIn slow"></div>
+      <div class="intro-text animated fadeInRight fast">
+        Software Engineer
+      </div>
       <a class="ghost-button" href="#">
         <span class="button-text">View Portfolio</span>
         <svg
@@ -63,7 +66,10 @@
         </div>
       </nav>
       <div class="container">
-        <h1 class="section-header">ABOUT</h1>
+        <div class="section-header-container">
+          <h1 class="section-header">ABOUT</h1>
+          <div class="underline"></div>
+        </div>
       </div>
     </section>
   </body>

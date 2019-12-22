@@ -4,16 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
     navbarThreshold: 915
   };
 
-  function offset(el) {
-    var rect = el.getBoundingClientRect(),
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  // Home Section
 
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-  }
-
+  // About Section
   window.onscroll = function(event) {
     navbarPositioning();
+
+    textAnimations();
   };
 
   var navbar = document.querySelector(".navbar");
@@ -26,5 +23,29 @@ document.addEventListener("DOMContentLoaded", function() {
       navbar.classList.remove("-fixed");
       globals.navbarFixed = false;
     }
+  }
+
+  var sectionData = {
+    about: {
+      breakpoint: 915
+    },
+    projects: {},
+    contact: {}
+  };
+
+  function textAnimations() {
+    var pageYOffset = window.pageYOffset;
+
+    if (pageYOffset > sectionData.about.breakpoint) {
+      aboutTextAnimations();
+    }
+  }
+
+  function aboutTextAnimations() {
+    var heading = document.querySelector("#about .section-header");
+    heading.classList.add("animated", "fadeInLeft", "fast");
+
+    var underline = document.querySelector("#about .underline");
+    underline.classList.add("animated", "fadeInRight", "fast");
   }
 });
