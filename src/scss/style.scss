@@ -1,8 +1,4 @@
-$snow-drift: #f9fbfa;
-$shamrock: #2cbcb1;
-$hippie-blue: #65a6ba;
-$tapa: #7b776f;
-$ebony-clay: #283345;
+@import "./colors.scss";
 
 body {
   margin: 0;
@@ -17,6 +13,7 @@ body {
   text-align: center;
   display: inline-block;
   margin-top: 25px;
+  visibility: hidden;
 
   .section-header {
     color: $ebony-clay;
@@ -138,5 +135,23 @@ body {
     &.active {
       color: $shamrock;
     }
+  }
+}
+
+.portrait {
+  margin-top: 150px;
+  height: 200px;
+  width: 200px;
+  background-color: blue;
+  transform: rotate(45deg);
+  border: 5px solid $tapa;
+  overflow: hidden;
+
+  .portrait-bg {
+    height: 100%;
+    width: 100%;
+    transform: rotate(-45deg) scale(1.5);
+    background: url("../assets/images/random-portait.jpg");
+    background-size: cover;
   }
 }

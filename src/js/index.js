@@ -41,11 +41,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  function aboutTextAnimations() {
-    var heading = document.querySelector("#about .section-header");
-    heading.classList.add("animated", "fadeInLeft", "fast");
+  var aboutTextTriggered = false;
 
-    var underline = document.querySelector("#about .underline");
-    underline.classList.add("animated", "fadeInRight", "fast");
+  function aboutTextAnimations() {
+    if (!aboutTextTriggered) {
+      var sectionHeaderContainer = document.querySelector(
+        "#about .section-header-container"
+      );
+
+      sectionHeaderContainer.style.visibility = "visible";
+
+      var heading = document.querySelector("#about .section-header");
+      heading.classList.add("animated", "fadeInLeft", "fast");
+
+      var underline = document.querySelector("#about .underline");
+      underline.classList.add("animated", "fadeInRight", "fast");
+
+      aboutTextTriggered = true;
+    }
   }
 });
