@@ -80,7 +80,7 @@ body {
 #about {
   height: 1000px;
   width: 100%;
-  background-color: #f9fbfa; }
+  background-color: #fff; }
 
 .navbar {
   background-color: #283345;
@@ -101,14 +101,39 @@ body {
     .navbar .nav-link.active {
       color: #2cbcb1; }
 
+.portrait-text-container {
+  display: flex;
+  align-items: center; }
+
+.about-ribbon {
+  margin-bottom: 42px;
+  margin-left: -100px;
+  position: relative;
+  flex: 1 1; }
+  .about-ribbon .about-text {
+    height: 283px;
+    background-color: #f9fbfa;
+    position: absolute;
+    margin-left: 97px;
+    margin-top: -41px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .about-ribbon .about-arrow {
+    height: 200px;
+    width: 200px;
+    border-width: 5px 5px 0 0;
+    transform: rotate(45deg);
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 3px 3px 5px 6px #ccc; }
+
 .portrait {
   margin-top: 150px;
   height: 200px;
   width: 200px;
-  background-color: blue;
   transform: rotate(45deg);
-  border: 5px solid #7b776f;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 2; }
   .portrait .portrait-bg {
     height: 100%;
     width: 100%;
