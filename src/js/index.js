@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
   var globals = {
     navbarFixed: false,
-    navbarThreshold: 915
+    navbarThreshold: 915,
   };
 
   // Home Section
@@ -10,54 +10,82 @@ document.addEventListener("DOMContentLoaded", function() {
   window.onscroll = function(event) {
     navbarPositioning();
 
-    textAnimations();
+    animations();
   };
 
-  var navbar = document.querySelector(".navbar");
+  var navbar = document.querySelector('.navbar');
 
   function navbarPositioning() {
-    if (window.pageYOffset >= navbar.offsetTop && !globals.navbarFixed) {
-      navbar.classList.add("-fixed");
+    if (
+      window.pageYOffset >= navbar.offsetTop &&
+      !globals.navbarFixed
+    ) {
+      navbar.classList.add('-fixed');
       globals.navbarFixed = true;
-    } else if (window.pageYOffset < navbar.offsetTop && globals.navbarFixed) {
-      navbar.classList.remove("-fixed");
+    } else if (
+      window.pageYOffset < navbar.offsetTop &&
+      globals.navbarFixed
+    ) {
+      navbar.classList.remove('-fixed');
       globals.navbarFixed = false;
     }
   }
 
   var sectionData = {
     about: {
-      breakpoint: 915
+      breakpoint: 915,
     },
     projects: {},
-    contact: {}
+    contact: {},
   };
 
-  function textAnimations() {
+  function animations() {
     var pageYOffset = window.pageYOffset;
 
     if (pageYOffset > sectionData.about.breakpoint) {
-      aboutTextAnimations();
+      aboutAnimations();
     }
   }
 
-  var aboutTextTriggered = false;
+  var aboutHeadingTriggered = false;
 
-  function aboutTextAnimations() {
-    if (!aboutTextTriggered) {
+  function aboutAnimations() {
+    if (!aboutHeadingTriggered) {
       var sectionHeaderContainer = document.querySelector(
-        "#about .section-header-container"
+        '#about .section-header-container',
       );
 
-      sectionHeaderContainer.style.visibility = "visible";
+      sectionHeaderContainer.style.visibility = 'visible';
 
-      var heading = document.querySelector("#about .section-header");
-      heading.classList.add("animated", "fadeInLeft", "fast");
+      var heading = document.querySelector('#about .section-header');
+      heading.classList.add('animated', 'fadeInLeft', 'fast');
 
-      var underline = document.querySelector("#about .underline");
-      underline.classList.add("animated", "fadeInRight", "fast");
+      var underline = document.querySelector('#about .underline');
+      underline.classList.add('animated', 'fadeInRight', 'fast');
 
-      aboutTextTriggered = true;
+      aboutHeadingTriggered = true;
+    }
+
+    var aboutDescriptionTriggered = false;
+
+    if (!aboutDescriptionTriggered) {
+      var portraitTextContainer = document.querySelector(
+        '#about .portrait-text-container',
+      );
+
+      portraitTextContainer.style.visibility = 'visible';
+
+      var portraitElement = document.querySelector(
+        '#about .portrait-container',
+      );
+      portraitElement.classList.add('animated', 'fadeInLeft', 'fast');
+
+      var ribbonElement = document.querySelector(
+        '#about .about-ribbon',
+      );
+      ribbonElement.classList.add('animated', 'fadeInRight', 'fast');
+
+      aboutDescriptionTriggered = true;
     }
   }
 });

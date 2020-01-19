@@ -26,5 +26,8 @@
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }
