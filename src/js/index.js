@@ -14,20 +14,27 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   var navbar = document.querySelector('.navbar');
+  var aboutHeading = document.querySelector(
+    '#about .section-header-container'
+  );
 
   function navbarPositioning() {
     if (
-      window.pageYOffset >= navbar.offsetTop &&
+      window.pageYOffset >= globals.navbarThreshold &&
       !globals.navbarFixed
     ) {
       navbar.classList.add('-fixed');
       globals.navbarFixed = true;
+
+      aboutHeading.style.marginTop = (navbar.offsetHeight + 50).toString() +
+      'px';
     } else if (
-      window.pageYOffset < navbar.offsetTop &&
+      window.pageYOffset < globals.navbarThreshold &&
       globals.navbarFixed
     ) {
       navbar.classList.remove('-fixed');
       globals.navbarFixed = false;
+      aboutHeading.style.marginTop = '50px';
     }
   }
 
@@ -58,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
       sectionHeaderContainer.style.visibility = 'visible';
 
       var heading = document.querySelector('#about .section-header');
-      heading.classList.add('animated', 'fadeInLeft', 'fast');
+      heading.classList.add('animated', 'fadeInLeft', 'faster');
 
       var underline = document.querySelector('#about .underline');
-      underline.classList.add('animated', 'fadeInRight', 'fast');
+      underline.classList.add('animated', 'fadeInRight', 'faster');
 
       aboutHeadingTriggered = true;
     }
@@ -78,12 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
       var portraitElement = document.querySelector(
         '#about .portrait-container',
       );
-      portraitElement.classList.add('animated', 'fadeInLeft', 'fast');
+      portraitElement.classList.add('animated', 'fadeInLeft', 'faster');
 
       var ribbonElement = document.querySelector(
         '#about .about-ribbon',
       );
-      ribbonElement.classList.add('animated', 'fadeInRight', 'fast');
+      ribbonElement.classList.add('animated', 'fadeInRight', 'faster');
 
       aboutDescriptionTriggered = true;
     }

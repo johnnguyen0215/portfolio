@@ -12,7 +12,7 @@ body {
 .section-header-container {
   text-align: center;
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 50px;
   visibility: hidden;
 
   .section-header {
@@ -144,6 +144,12 @@ body {
   visibility: hidden;
   display: flex;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .about-ribbon {
@@ -159,6 +165,8 @@ body {
     margin-left: 100px;
     margin-top: -41px;
     box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    font-size: 18px;
   }
 
   .arrow {
@@ -176,6 +184,10 @@ body {
   .text {
     padding: 20px;
     margin-left: 170px;
+  }
+
+  @media only screen and (max-width: 768px) {
+
   }
 }
 
@@ -200,3 +212,27 @@ body {
     }
   }
 }
+
+// @media only screen and (max-width: 600px) {
+
+// }
+
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {
+
+// }
+
+/* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 768px) {
+
+// }
+
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {
+
+// }
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {
+
+// }
