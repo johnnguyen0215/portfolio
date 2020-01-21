@@ -1,10 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var globals = {
-    navbarFixed: false,
-    navbarThreshold: 915,
-  };
+  var navbar = document.querySelector('.navbar');
 
-  // Home Section
+  var aboutHeading = document.querySelector('#about .section-header-container');
+
+  var homeSection = document.querySelector('#home');
+
+  var navbarFixed = false;
+
+  var menuOpen = false;
+
+  var burger = document.querySelector('.navbar .burger');
+
+  burger.addEventListener('click', toggleMenuOpen);
+
+  var sideNav = document.querySelector('.side-nav');
+
+  var content = document.querySelector('.content');
+
+  function toggleMenuOpen() {
+    if (menuOpen) {
+      burger.classList.remove('open');
+      sideNav.style.width = 0;
+      content.style.marginLeft = 0;
+      menuOpen = false;
+    } else {
+      burger.classList.add('open');
+      sideNav.style.width = '200px';
+      content.style.marginLeft = '200px';
+      menuOpen = true;
+    }
+  }
 
   // About Section
   window.onscroll = function(event) {
@@ -13,27 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
     animations();
   };
 
-  var navbar = document.querySelector('.navbar');
-  var aboutHeading = document.querySelector(
-    '#about .section-header-container'
-  );
-
   function navbarPositioning() {
-    if (
-      window.pageYOffset >= globals.navbarThreshold &&
-      !globals.navbarFixed
-    ) {
+    if (homeSection.getBoundingClientRect().bottom <= 0 && navbarFixed) {
       navbar.classList.add('-fixed');
-      globals.navbarFixed = true;
+      navbarFixed = true;
 
-      aboutHeading.style.marginTop = (navbar.offsetHeight + 50).toString() +
-      'px';
-    } else if (
-      window.pageYOffset < globals.navbarThreshold &&
-      globals.navbarFixed
-    ) {
+      aboutHeading.style.marginTop =
+        (navbar.offsetHeight + 50).toString() + 'px';
+    } else if (homeSection.getBoundingClientRect().bottom > 0 && navbarFixed) {
       navbar.classList.remove('-fixed');
-      globals.navbarFixed = false;
+      navbarFixed = false;
       aboutHeading.style.marginTop = '50px';
     }
   }
@@ -87,9 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
       );
       portraitElement.classList.add('animated', 'fadeInLeft', 'faster');
 
-      var ribbonElement = document.querySelector(
-        '#about .about-ribbon',
-      );
+      var ribbonElement = document.querySelector('#about .about-ribbon');
+
       ribbonElement.classList.add('animated', 'fadeInRight', 'faster');
 
       aboutDescriptionTriggered = true;

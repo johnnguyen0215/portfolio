@@ -111,9 +111,18 @@ body {
 .navbar {
   background-color: $ebony-clay;
   border-top: 2px solid $shamrock;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(0, 0, 0, 0.23);
-  z-index: 1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 3;
+
+  .navbar-nav {
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .container {
+    justify-content: flex-start;
+  }
 
   &.-fixed {
     position: fixed;
@@ -140,15 +149,32 @@ body {
   }
 }
 
+.content {
+  transition: margin-left 0.5s;
+}
+
+.side-nav {
+  height: 100%;
+  position: fixed;
+  width: 0;
+  background-color: red;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
 .portrait-text-container {
   visibility: hidden;
   display: flex;
   align-items: center;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (min-width: 600px) {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
   }
 }
 
@@ -166,7 +192,6 @@ body {
     margin-top: -41px;
     box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
     justify-content: center;
-    font-size: 18px;
   }
 
   .arrow {
@@ -184,10 +209,26 @@ body {
   .text {
     padding: 20px;
     margin-left: 170px;
-  }
 
-  @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 600px) {
+      font-size: 10px;
+    }
 
+    @media only screen and (min-width: 600px) {
+      font-size: 12px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 992px) {
+      font-size: 16px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -196,12 +237,17 @@ body {
 
   .portrait {
     margin-top: 150px;
+    margin-left: 50px;
     height: 200px;
     width: 200px;
     transform: rotate(45deg) !important;
     overflow: hidden;
     z-index: 2;
     box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
+
+    @media only screen and (min-width: 768px) {
+      margin-left: unset;
+    }
 
     .portrait-bg {
       height: 100%;
@@ -213,9 +259,106 @@ body {
   }
 }
 
-// @media only screen and (max-width: 600px) {
+.burger {
+  display: none;
+  height: 3em;
+  width: 3em;
+  position: relative;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s all;
+  -webkit-tap-highlight-color: transparent;
 
-// }
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+
+  .burger-lines:after {
+    left: 0;
+    top: -1em;
+  }
+
+  .burger-lines:before {
+    left: 1em;
+    top: 1em;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+  }
+
+  .burger-lines {
+    top: 50%;
+    margin-top: -0.125em;
+    &,
+    &:after,
+    &:before {
+      pointer-events: none;
+      display: block;
+      content: '';
+      width: 100%;
+      border-radius: 0.25em;
+      background-color: white;
+      height: 0.25em;
+      position: absolute;
+      transform: rotate(0);
+    }
+    &:after {
+      left: 0;
+      top: -1em;
+    }
+    &:before {
+      left: 1em;
+      top: 1em;
+    }
+  }
+
+  &.burger-squeeze {
+    .burger-lines {
+      &,
+      &:after,
+      &:before {
+        transition: 0.2s top 0.2s, 0.1s left, 0.2s transform,
+          0.4s background-color 0.2s;
+      }
+      &:after,
+      &:before {
+        width: 2em;
+      }
+    }
+
+    &.open {
+      .burger-lines {
+        &,
+        &:after,
+        &:before {
+          transition: 0.2s background-color, 0.2s top, 0.2s left,
+            0.2s transform 0.15s;
+        }
+        & {
+          background-color: transparent;
+        }
+        &:before,
+        &:after {
+          left: 0.5em;
+          top: 0px;
+        }
+        &:before {
+          transform: rotate(-45deg);
+        }
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
 
 // /* Small devices (portrait tablets and large phones, 600px and up) */
 // @media only screen and (min-width: 600px) {
