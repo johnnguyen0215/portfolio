@@ -108,17 +108,30 @@ body {
       color: #2cbcb1; }
 
 .content {
-  transition: margin-left 0.5s; }
+  transition: margin-left 0.5s;
+  z-index: 2000; }
 
 .side-nav {
+  visibility: hidden;
+  width: 0;
+  margin-left: 0;
+  overflow-x: hidden;
   height: 100%;
   position: fixed;
-  width: 0;
-  background-color: red;
-  z-index: 1000;
+  background-color: #283345;
+  border-right: 2px solid #2cbcb1;
   top: 0;
-  left: 0;
-  transition: 0.5s; }
+  left: 0; }
+  .side-nav .side-nav-list {
+    list-style-type: none; }
+    .side-nav .side-nav-list .side-nav-item {
+      transition: 0.3s; }
+  .side-nav.-open {
+    visibility: visible;
+    transition: 0.5s;
+    width: 200px; }
+  .side-nav.-closed {
+    transition: 0.5s; }
 
 .portrait-text-container {
   visibility: hidden;

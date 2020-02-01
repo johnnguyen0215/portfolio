@@ -17,19 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var content = document.querySelector('.content');
 
-  function toggleMenuOpen() {
-    if (menuOpen) {
+  function toggleMenuOpen(forceTo) {
+    if (menuOpen || forceTo === false) {
       burger.classList.remove('open');
-      sideNav.style.width = 0;
-      content.style.marginLeft = 0;
+      sideNav.classList.remove('-open');
+      sideNav.classList.add('-closed');
+      content.style.marginLeft = '0';
       menuOpen = false;
     } else {
       burger.classList.add('open');
-      sideNav.style.width = '200px';
+      sideNav.classList.remove('-closed');
+      sideNav.classList.add('-open');
       content.style.marginLeft = '200px';
       menuOpen = true;
     }
   }
+
+  window.onresize = function() {
+    if (window.innerWidth > 768 && menuOpen) {
+      toggleMenuOpen(false);
+    }
+  };
 
   // About Section
   window.onscroll = function(event) {
@@ -39,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   function navbarPositioning() {
-    if (homeSection.getBoundingClientRect().bottom <= 0 && navbarFixed) {
+    if (homeSection.getBoundingClientRect().bottom <= 0 && !navbarFixed) {
       navbar.classList.add('-fixed');
       navbarFixed = true;
 

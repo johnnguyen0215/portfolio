@@ -151,17 +151,38 @@ body {
 
 .content {
   transition: margin-left 0.5s;
+  z-index: 2000;
 }
 
 .side-nav {
+  visibility: hidden;
+  width: 0;
+  margin-left: 0;
+  overflow-x: hidden;
   height: 100%;
   position: fixed;
-  width: 0;
-  background-color: red;
-  z-index: 1000;
+  background-color: $ebony-clay;
+  border-right: 2px solid $shamrock;
   top: 0;
   left: 0;
-  transition: 0.5s;
+
+  .side-nav-list {
+    .side-nav-item {
+      transition: 0.3s;
+    }
+
+    list-style-type: none;
+  }
+
+  &.-open {
+    visibility: visible;
+    transition: 0.5s;
+    width: 200px;
+  }
+
+  &.-closed {
+    transition: 0.5s;
+  }
 }
 
 .portrait-text-container {
