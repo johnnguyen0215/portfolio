@@ -1,27 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
-.section-header-container {
-  text-align: center;
-  display: inline-block;
-  margin-top: 50px;
-  visibility: hidden; }
-  .section-header-container .section-header {
-    color: #283345;
-    font-weight: 600;
-    font-size: 3em;
-    margin-bottom: 0; }
-  .section-header-container .underline {
-    display: inline-block;
-    width: 80%;
-    height: 4px;
-    background-color: #283345; }
-
 #home {
   display: flex;
   flex-direction: column;
@@ -81,57 +57,6 @@ body {
   height: 1000px;
   width: 100%;
   background-color: #fff; }
-
-.navbar {
-  background-color: #283345;
-  border-top: 2px solid #2cbcb1;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  z-index: 3; }
-  @media only screen and (max-width: 768px) {
-    .navbar .navbar-nav {
-      display: none; } }
-  .navbar .container {
-    justify-content: flex-start; }
-  .navbar.-fixed {
-    position: fixed;
-    width: 100%;
-    top: 0; }
-  .navbar .nav-item {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    text-transform: uppercase; }
-  .navbar .nav-link {
-    color: #f9fbfa; }
-    .navbar .nav-link:hover {
-      color: #2cbcb1; }
-    .navbar .nav-link.active {
-      color: #2cbcb1; }
-
-.content {
-  transition: margin-left 0.5s;
-  z-index: 2000; }
-
-.side-nav {
-  visibility: hidden;
-  width: 0;
-  margin-left: 0;
-  overflow-x: hidden;
-  height: 100%;
-  position: fixed;
-  background-color: #283345;
-  border-right: 2px solid #2cbcb1;
-  top: 0;
-  left: 0; }
-  .side-nav .side-nav-list {
-    list-style-type: none; }
-    .side-nav .side-nav-list .side-nav-item {
-      transition: 0.3s; }
-  .side-nav.-open {
-    visibility: visible;
-    transition: 0.5s;
-    width: 200px; }
-  .side-nav.-closed {
-    transition: 0.5s; }
 
 .portrait-text-container {
   visibility: hidden;
@@ -206,6 +131,55 @@ body {
       background: url("../assets/images/random-portait.jpg");
       background-size: cover; }
 
+.navbar {
+  background-color: #283345;
+  border-top: 2px solid #2cbcb1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 3; }
+  @media only screen and (max-width: 768px) {
+    .navbar .navbar-nav {
+      display: none; } }
+  .navbar .container {
+    justify-content: flex-start; }
+  .navbar.-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0; }
+  .navbar .nav-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase; }
+
+.side-nav {
+  visibility: hidden;
+  width: 0;
+  margin-left: 0;
+  overflow-x: hidden;
+  height: 100%;
+  position: fixed;
+  background-color: #283345;
+  border-right: 2px solid #2cbcb1;
+  top: 0;
+  left: 0;
+  z-index: 1000; }
+  .side-nav .burger {
+    margin-top: 10px;
+    margin-right: 10px; }
+  .side-nav .navbar-nav {
+    margin-top: 50px;
+    margin-left: 25px; }
+  .side-nav .nav-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-size: 25px; }
+  .side-nav.-open {
+    visibility: visible;
+    transition: 0.5s;
+    width: 200px; }
+  .side-nav.-closed {
+    transition: 0.5s; }
+
 .burger {
   display: none;
   height: 3em;
@@ -266,5 +240,40 @@ body {
     transform: rotate(-45deg); }
   .burger.burger-squeeze.open .burger-lines:after {
     transform: rotate(45deg); }
+
+body {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.section-header-container {
+  text-align: center;
+  display: inline-block;
+  margin-top: 50px;
+  visibility: hidden; }
+  .section-header-container .section-header {
+    color: #283345;
+    font-weight: 600;
+    font-size: 3em;
+    margin-bottom: 0; }
+  .section-header-container .underline {
+    display: inline-block;
+    width: 80%;
+    height: 4px;
+    background-color: #283345; }
+
+.content {
+  transition: margin-left 0.5s;
+  z-index: 2000; }
+
+.nav-link {
+  color: #f9fbfa; }
+  .nav-link:hover {
+    color: #2cbcb1; }
+  .nav-link.active {
+    color: #2cbcb1; }
 
 /* Medium devices (landscape tablets, 768px and up) */

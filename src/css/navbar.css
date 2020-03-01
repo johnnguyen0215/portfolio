@@ -1,0 +1,18 @@
+.navbar {
+  background-color: #283345;
+  border-top: 2px solid #2cbcb1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 3; }
+  @media only screen and (max-width: 768px) {
+    .navbar .navbar-nav {
+      display: none; } }
+  .navbar .container {
+    justify-content: flex-start; }
+  .navbar.-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0; }
+  .navbar .nav-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase; }

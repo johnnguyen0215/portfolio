@@ -1,0 +1,29 @@
+@import 'common/mixins';
+@import 'common/colors';
+
+.navbar {
+  background-color: $ebony-clay;
+  border-top: 2px solid $shamrock;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 3;
+
+  .navbar-nav {
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .container {
+    justify-content: flex-start;
+  }
+
+  &.-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  .nav-item {
+    @include navItem;
+  }
+}

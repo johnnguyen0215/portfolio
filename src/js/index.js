@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var burger = document.querySelector('.navbar .burger');
 
+  var sideNavBurger = document.querySelector('.side-nav .burger');
+
   burger.addEventListener('click', toggleMenuOpen);
 
   var sideNav = document.querySelector('.side-nav');
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   function navbarPositioning() {
+    console.log(navbar.getBoundingClientRect());
     if (homeSection.getBoundingClientRect().bottom <= 0 && !navbarFixed) {
       navbar.classList.add('-fixed');
       navbarFixed = true;

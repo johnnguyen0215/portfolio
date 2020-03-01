@@ -1,0 +1,41 @@
+@import 'common/mixins';
+@import 'common/colors';
+
+.side-nav {
+  visibility: hidden;
+  width: 0;
+  margin-left: 0;
+  overflow-x: hidden;
+  height: 100%;
+  position: fixed;
+  background-color: $ebony-clay;
+  border-right: 2px solid $shamrock;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .burger {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .navbar-nav {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+
+  .nav-item {
+    @include navItem;
+    font-size: 25px;
+  }
+
+  &.-open {
+    visibility: visible;
+    transition: 0.5s;
+    width: 200px;
+  }
+
+  &.-closed {
+    transition: 0.5s;
+  }
+}
