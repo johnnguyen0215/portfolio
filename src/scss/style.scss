@@ -38,6 +38,7 @@ body {
 .content {
   transition: margin-left 0.5s;
   z-index: 2000;
+  overflow: hidden;
 }
 
 .nav-link {

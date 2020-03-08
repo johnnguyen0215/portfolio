@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var navbar = document.querySelector('.navbar');
 
   var aboutHeading = document.querySelector('#about .section-header-container');
@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var sideNavBurger = document.querySelector('.side-nav .burger');
 
   burger.addEventListener('click', toggleMenuOpen);
+
+  sideNavBurger.addEventListener('click', toggleMenuOpen);
 
   var sideNav = document.querySelector('.side-nav');
 
@@ -35,14 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  window.onresize = function() {
+  window.onresize = function () {
     if (window.innerWidth > 768 && menuOpen) {
       toggleMenuOpen(false);
     }
   };
 
   // About Section
-  window.onscroll = function(event) {
+  window.onscroll = function (event) {
     navbarPositioning();
 
     animations();

@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "test",
-    "scss": "node-sass --watch src/scss -o src/css"
+    "init": "npm install && node-sass src/scss -o src/css",
+    "scss": "node-sass --watch src/scss -o src/css",
+    "start": "ws -d ./src"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "node-sass": "^4.13.0"
   },
   "devDependencies": {
+    "local-web-server": "^4.0.0",
     "prettier": "^1.19.1"
   }
 }
