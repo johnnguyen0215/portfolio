@@ -87,7 +87,7 @@
     z-index: 2;
     box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (max-width: 992px) {
       margin-left: unset;
     }
 
