@@ -1,3 +1,1 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const homeSection = document.querySelector('#home');
-});
+export const homeSection = document.querySelector('#home');

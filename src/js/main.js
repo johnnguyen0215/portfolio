@@ -1,5 +1,6 @@
 import '../scss/style.scss';
-import { aboutAnimations, aboutHeading } from './aboutPage';
+import { aboutAnimations, aboutPageResizeListener } from './aboutPage';
+import { navbarPositioning, navbarResizeListener } from './navbar';
 
 document.addEventListener('DOMContentLoaded', function () {
   const sectionData = {
@@ -19,14 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   window.onresize = function () {
-    if (window.innerWidth > 768 && menuOpen) {
-      toggleMenuOpen(false);
-    }
+    navbarResizeListener();
 
-    if (window.innerWidth < 992) {
-      portraitAnimation = 'fadeInTop';
-      ribbonAnimation = 'fadeInBottom';
-    }
+    aboutPageResizeListener();
   };
 
   // About Section

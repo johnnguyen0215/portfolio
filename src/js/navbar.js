@@ -1,18 +1,14 @@
 import { aboutHeading } from './aboutPage';
+import { homeSection } from './homePage';
 
 const content = document.querySelector('.content');
-
-const menuOpen = false;
-
 const navbar = document.querySelector('.navbar');
-
 const burger = document.querySelector('.navbar .burger');
-
 const sideNavBurger = document.querySelector('.side-nav .burger');
-
 const sideNav = document.querySelector('.side-nav');
 
-const navbarFixed = false;
+let menuOpen = false;
+let navbarFixed = false;
 
 export const toggleMenuOpen = (forceTo) => {
   if (menuOpen || forceTo === false) {
@@ -44,6 +40,11 @@ export const navbarPositioning = () => {
   }
 }
 
-burger.addEventListener('click', toggleMenuOpen);
+export const navbarResizeListener = () => {
+  if (window.innerWidth > 768 && menuOpen) {
+    toggleMenuOpen(false);
+  }
+}
 
+burger.addEventListener('click', toggleMenuOpen);
 sideNavBurger.addEventListener('click', toggleMenuOpen);

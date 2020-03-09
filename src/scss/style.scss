@@ -1,5 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
-@import 'common/colors';
+@import "~animate.css/source/_base.css";
+@import "~animate.css/source/fading_entrances/fadeInDown.css";
+@import "~animate.css/source/fading_entrances/fadeInUp.css";
+@import "~animate.css/source/fading_entrances/fadeInLeft.css";
+@import "~animate.css/source/fading_entrances/fadeInRight.css";
+@import './common/colors';
 @import './home.scss';
 @import './about.scss';
 @import './navbar.scss';

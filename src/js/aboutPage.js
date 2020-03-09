@@ -1,7 +1,6 @@
-const aboutHeading = document.querySelector('#about .section-header-container');
+export const aboutHeading = document.querySelector('#about .section-header-container');
 
-const aboutHeadingTriggered = false;
-
+let aboutHeadingTriggered = false;
 let portraitAnimation = 'fadeInLeft';
 let ribbonAnimation = 'fadeInRight';
 
@@ -27,7 +26,7 @@ export const aboutAnimations = () => {
     aboutHeadingTriggered = true;
   }
 
-  const aboutDescriptionTriggered = false;
+  let aboutDescriptionTriggered = false;
 
   if (!aboutDescriptionTriggered) {
     const portraitTextContainer = document.querySelector(
@@ -39,6 +38,7 @@ export const aboutAnimations = () => {
     const portraitElement = document.querySelector(
       '#about .portrait-container',
     );
+
     portraitElement.classList.add('animated', portraitAnimation, 'faster');
 
     const ribbonElement = document.querySelector('#about .about-ribbon');
@@ -46,5 +46,12 @@ export const aboutAnimations = () => {
     ribbonElement.classList.add('animated', ribbonAnimation, 'faster');
 
     aboutDescriptionTriggered = true;
+  }
+}
+
+export const aboutPageResizeListener = () => {
+  if (window.innerWidth < 992) {
+    portraitAnimation = 'fadeInTop';
+    ribbonAnimation = 'fadeInBottom';
   }
 }
