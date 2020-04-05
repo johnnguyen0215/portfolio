@@ -132,20 +132,81 @@
 }
 
 .skill-graph {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-
+  margin: 0 auto;
+  max-width: 800px;
 
   .skill-container {
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .skill-bar {
-    height: 200px;
-    width: 20px;
-    background-color: $shamrock;
+    &.js {
+      .skill-bar {
+        transition: 1s
+      }
+    }
+
+    &.html {
+      .skill-bar {
+        width: 90%;
+      }
+    }
+
+    &.css {
+      .skill-bar {
+        width: 90%;
+      }
+    }
+
+    &.react {
+      .skill-bar {
+        width: 85%;
+      }
+    }
+
+    &.angular {
+      .skill-bar {
+        width: 80%;
+      }
+    }
+
+
+    &.node {
+      .skill-bar {
+        width: 50%;
+      }
+    }
+
+    &.php {
+      .skill-bar {
+        width: 30%;
+      }
+    }
+
+    .skill {
+      background-color: $ebony-clay;
+      font-weight: bold;
+      color: $snow-drift;
+      height: 25px;
+      text-align: center;
+      flex: 2;
+    }
+
+    .skill-bar-container {
+      background-color: $blue-grey;
+      flex: 13;
+
+      .skill-bar {
+        height: 25px;
+        background-color: $shamrock;
+        transition: width 1s ease-in-out;
+      }
+    }
+
+    .skill-percentage {
+      background-color: $blue;
+      text-align: center;
+      color: $snow-drift;
+      flex: 1
+    }
   }
 }

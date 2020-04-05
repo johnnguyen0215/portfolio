@@ -1,4 +1,4 @@
-import { aboutHeading } from './aboutPage';
+import aboutController from './aboutController';
 import { homeSection } from './homePage';
 
 const content = document.querySelector('.content');
@@ -31,12 +31,12 @@ export const navbarPositioning = () => {
     navbar.classList.add('-fixed');
     navbarFixed = true;
 
-    aboutHeading.style.marginTop =
+    aboutController.aboutHeading.style.marginTop =
       (navbar.offsetHeight + 50).toString() + 'px';
   } else if (homeSection.getBoundingClientRect().bottom > 0 && navbarFixed) {
     navbar.classList.remove('-fixed');
     navbarFixed = false;
-    aboutHeading.style.marginTop = '50px';
+    aboutController.aboutHeading.style.marginTop = '50px';
   }
 }
 

@@ -1,28 +1,19 @@
 import '../scss/style.scss';
-import { aboutAnimations, aboutPageResizeListener } from './aboutPage';
+import aboutController from './aboutController';
 import { navbarPositioning, navbarResizeListener } from './navbar';
 
 document.addEventListener('DOMContentLoaded', function () {
-  const sectionData = {
-    about: {
-      breakpoint: 915,
-    },
-    projects: {},
-    contact: {},
-  };
 
   const animations = () => {
     const pageYOffset = window.pageYOffset;
 
-    if (pageYOffset > sectionData.about.breakpoint) {
-      aboutAnimations();
-    }
+    aboutController.aboutAnimations(pageYOffset);
   }
 
   window.onresize = function () {
     navbarResizeListener();
 
-    aboutPageResizeListener();
+    aboutController.aboutPageResizeListener();
   };
 
   // About Section
