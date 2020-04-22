@@ -141,7 +141,8 @@
 
     &.js {
       .skill-bar {
-        transition: 1s
+        transition: 2s width ease-in-out;
+        width: 90%;
       }
     }
 
@@ -193,7 +194,7 @@
 
     .skill-bar-container {
       background-color: $blue-grey;
-      flex: 13;
+      flex: 12;
 
       .skill-bar {
         height: 25px;
@@ -209,4 +210,8 @@
       flex: 1
     }
   }
+}
+
+.expand-animation {
+
 }
