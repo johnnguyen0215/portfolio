@@ -28,11 +28,7 @@ class AboutController {
 
   headingAnimations() {
     if (!this.headingAnimationTriggered) {
-      const sectionHeaderContainer = document.querySelector(
-        '#about .section-header-container',
-      );
-
-      sectionHeaderContainer.style.visibility = 'visible';
+      this.aboutHeading.style.visibility = 'visible';
 
       const heading = document.querySelector('#about .section-header');
       heading.classList.add('animated', 'fadeInLeft', 'faster');
@@ -71,15 +67,15 @@ class AboutController {
   }
 
   aboutAnimations(pageYOffset) {
-    if (pageYOffset < this.headingBreakPoint) {
+    if (pageYOffset > this.headingBreakpoint) {
       this.headingAnimations();
     }
 
-    if (pageYOffset < this.descriptionBreakpoint) {
+    if (pageYOffset > this.descriptionBreakpoint) {
       this.descriptionAnimations();
     }
 
-    if (pageYOffset < this.graphBreakpoint) {
+    if (pageYOffset > this.graphBreakpoint) {
       this.graphAnimations();
     }
   }

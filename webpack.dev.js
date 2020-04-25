@@ -6,5 +6,6 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist',
     watchContentBase: true,
+    port: 8080
   }
 })

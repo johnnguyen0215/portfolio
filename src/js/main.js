@@ -1,25 +1,28 @@
 import '../scss/style.scss';
 import aboutController from './aboutController';
-import { navbarPositioning, navbarResizeListener } from './navbar';
+import navbarController from './navbarController';
 
-document.addEventListener('DOMContentLoaded', function () {
-
-  const animations = () => {
+class MainController {
+  animations() {
     const pageYOffset = window.pageYOffset;
-
     aboutController.aboutAnimations(pageYOffset);
   }
 
-  window.onresize = function () {
-    navbarResizeListener();
+  constructor() {
+    window.onresize = () => {
+      navbarController.navbarResizeListener();
 
-    aboutController.aboutPageResizeListener();
-  };
+      aboutController.aboutResizeListener();
+    }
 
-  // About Section
-  window.onscroll = function (event) {
-    navbarPositioning();
+    window.onscroll = (event) => {
+      navbarController.navbarPositioning();
 
-    animations();
-  };
+      this.animations();
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const app = new MainController();
 });

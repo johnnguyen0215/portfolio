@@ -1,1 +1,0 @@
-export const homeSection = document.querySelector('#home');
