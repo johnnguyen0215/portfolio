@@ -25,7 +25,8 @@ class NavbarController {
       this.content.style.marginLeft = '0';
       this.menuOpen = false;
     } else {
-      console.log(this.burger);
+      this.burger = document.querySelector('.navbar .burger');
+      this.burger.classList;
       this.burger.classList.add('open');
       this.sideNav.classList.remove('-closed');
       this.sideNav.classList.add('-open');
