@@ -109,12 +109,7 @@
   .portrait {
     margin-top: 150px;
     margin-left: 50px;
-    height: 200px;
-    width: 200px;
-    transform: rotate(45deg) !important;
     overflow: hidden;
-    z-index: 2;
-    box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
 
     @media only screen and (max-width: 992px) {
       margin-left: unset;
@@ -208,5 +203,16 @@
       color: $snow-drift;
       flex: 1
     }
+  }
+}
+
+.qualities {
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+
+  .diamond {
+    background-color: $shamrock;
   }
 }

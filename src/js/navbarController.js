@@ -12,7 +12,6 @@ class NavbarController {
   navbarFixed = false;
 
   constructor() {
-    console.log(this.burger);
     this.burger.addEventListener('click', this.toggleMenuOpen);
     this.sideNavBurger.addEventListener('click', this.toggleMenuOpen);
   }
