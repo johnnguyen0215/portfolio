@@ -4,6 +4,10 @@
 @import "~animate.css/source/fading_entrances/fadeInUp.css";
 @import "~animate.css/source/fading_entrances/fadeInLeft.css";
 @import "~animate.css/source/fading_entrances/fadeInRight.css";
+@import "~animate.css/source/rotating_entrances/rotateInDownRight.css";
+@import "~animate.css/source/rotating_entrances/rotateInDownLeft.css";
+@import "~animate.css/source/rotating_entrances/rotateInUpRight.css";
+@import "~animate.css/source/rotating_entrances/rotateInUpLeft.css";
 @import './common/colors';
 @import './home.scss';
 @import './about.scss';
@@ -65,13 +69,7 @@ body {
   transform: rotate(45deg) !important;
   box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
   z-index: 2;
-
-  .diamond-inner {
-    transform: rotate(-45deg);
-  }
 }
-
-
 
 // /* Small devices (portrait tablets and large phones, 600px and up) */
 // @media only screen and (min-width: 600px) {

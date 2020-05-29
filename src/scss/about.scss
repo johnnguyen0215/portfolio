@@ -76,18 +76,6 @@
     padding: 20px;
     margin-left: 170px;
 
-    // @media only screen and (max-width: 600px) {
-    //   font-size: 10px;
-    // }
-
-    // @media only screen and (min-width: 600px) {
-    //   font-size: 12px;
-    // }
-
-    // @media only screen and (min-width: 768px) {
-    //   font-size: 14px;
-    // }
-
     @media only screen and (max-width: 992px) {
       margin-left: unset;
       padding-top: 0;
@@ -110,6 +98,7 @@
     margin-top: 150px;
     margin-left: 50px;
     overflow: hidden;
+    background-color: #00a8f3;
 
     @media only screen and (max-width: 992px) {
       margin-left: unset;
@@ -118,8 +107,8 @@
     .portrait-bg {
       height: 100%;
       width: 100%;
-      transform: rotate(-45deg) scale(1.5);
-      background: url('../assets/images/random-portait.jpg');
+      transform: rotate(-45deg) scale(1.5) translate(0, 20px);
+      background: url('../assets/images/profile-pic.jpeg');
       background-size: cover;
     }
   }
@@ -212,7 +201,84 @@
   font-size: 18px;
   color: white;
 
+  .qualities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .diamond {
-    background-color: $shamrock;
+    height: 150px;
+    width: 150px;
+    background-color: $ebony-clay;
+
+    .diamond-inner {
+      transform: rotate(-45deg) translateY(10px);
+    }
+  }
+
+  .icon {
+    height: 70px;
+    width: 70px;
+    margin-top: 20px;
+    background-size: 70px 70px;
+
+    &.-efficient {
+      background-image: url(../assets/svgs/efficiency.svg);
+      margin-left: 24px;
+    }
+
+    &.-accessible {
+      background-image: url(../assets/svgs/accessible.svg);
+      margin-left: 24px;
+    }
+
+    &.-responsive {
+      background-image: url(../assets/svgs/responsive.svg);
+      margin-left: 24px;
+    }
+
+    &.-dynamic {
+      background-image: url(../assets/svgs/dynamic.svg);
+      margin-left: 27px;
+    }
+  }
+
+  .efficient {
+    .quality-text {
+      margin-left: 28px;
+    }
+
+    margin-bottom: 150px;
+
+    animation: rotateInDownRight;
+    animation-duration: 1.5s;
+  }
+
+  .responsive {
+    .quality-text {
+      margin-left: 13px;
+    }
+
+    animation: rotateInUpLeft;
+    animation-duration: 1.5s;
+  }
+
+  .accessible {
+    .quality-text {
+      margin-left: 18px;
+    }
+
+    animation: rotateInDownRight;
+    animation-duration: 1.5s;
+  }
+
+  .dynamic {
+    .quality-text {
+      margin-left: 23px;
+    }
+
+    animation: rotateInUpLeft;
+    animation-duration: 1.5s;
   }
 }
