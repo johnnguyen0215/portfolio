@@ -1,0 +1,27 @@
+#projects {
+  width: 100%;
+  background-color: #DEF2F1;
+}
+
+.projects-container {
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 50px;
+
+  .project-card {
+    flex: 1 1 auto;
+    border: 1px solid black;
+    height: 300px;
+    width: 350px;
+
+    &.mhe {
+      background: url(../assets/images/mhe-1.png);
+      background-size: cover;
+    }
+
+    &.uci-ocw {
+      background: url(../assets/images/uci-ocw-1.png);
+      background-size: cover;
+    }
+  }
+}

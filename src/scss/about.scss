@@ -5,18 +5,6 @@
   background-color: #fff;
 }
 
-.portrait-text-container {
-  visibility: hidden;
-  display: flex;
-  align-items: center;
-  margin-bottom: 120px;
-
-  @media only screen and (max-width: 992px) {
-    flex-direction: column;
-    margin-bottom: -120px;
-  }
-}
-
 .about-ribbon {
   margin-bottom: 42px;
   margin-left: -100px;
@@ -91,6 +79,18 @@
   }
 }
 
+.portrait-text-container {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: 120px;
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    margin-bottom: -120px;
+  }
+}
+
 .portrait-container {
   z-index: 2;
 
@@ -98,7 +98,7 @@
     margin-top: 150px;
     margin-left: 50px;
     overflow: hidden;
-    background-color: #00a8f3;
+    background-color: $blue;
 
     @media only screen and (max-width: 992px) {
       margin-left: unset;
@@ -117,6 +117,7 @@
 .skill-graph {
   margin: 0 auto;
   max-width: 800px;
+  font-family: 'Raleway';
 
   .skill-container {
     margin-bottom: 20px;
@@ -172,7 +173,8 @@
       color: $snow-drift;
       height: 25px;
       text-align: center;
-      flex: 2;
+      flex: 1.5;
+      min-width: 70px;
     }
 
     .skill-bar-container {
@@ -190,6 +192,8 @@
       background-color: $blue;
       text-align: center;
       color: $snow-drift;
+      font-weight: bold;
+      min-width: 55px;
       flex: 1
     }
   }
@@ -200,6 +204,7 @@
   font-weight: bold;
   font-size: 18px;
   color: white;
+  margin-top: 60px;
 
   .qualities-container {
     display: flex;

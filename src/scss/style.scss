@@ -14,6 +14,7 @@
 @import './navbar.scss';
 @import './side-nav.scss';
 @import './burger.scss';
+@import './projects.scss';
 
 body {
   margin: 0;
@@ -28,7 +29,7 @@ body {
   text-align: center;
   display: inline-block;
   margin-top: 50px;
-  visibility: hidden;
+  // visibility: hidden; uncomment this once we do animations
 
   .section-header {
     color: $ebony-clay;
