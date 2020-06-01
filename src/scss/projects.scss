@@ -1,27 +1,120 @@
 #projects {
   width: 100%;
   background-color: #DEF2F1;
+  padding-bottom: 80px;
 }
 
 .projects-container {
   display: flex;
   flex-flow: wrap;
   margin-top: 50px;
+  justify-content: center;
 
-  .project-card {
-    flex: 1 1 auto;
-    border: 1px solid black;
+  .project-card-container {
     height: 300px;
-    width: 350px;
+    max-width: 350px;
+    min-width: 350px;
+    overflow: hidden;
+
+    .project-card-overlay {
+      text-align: center;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      margin-top: -235px;
+      pointer-events: none;
+      visibility: hidden;
+      overflow: hidden;
+
+      &.-hover {
+        visibility: visible;
+        transition: visibility 0.5s;
+      }
+
+      .project-card-text {
+        margin-bottom: 60px;
+        color: $ebony-clay;
+        font-family: 'Lato', 'Raleway', Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
 
     &.mhe {
-      background: url(../assets/images/mhe-1.png);
-      background-size: cover;
+      .project-card {
+        background: url(../assets/images/mhe-1.png);
+        background-size: cover;
+      }
     }
 
     &.uci-ocw {
-      background: url(../assets/images/uci-ocw-1.png);
-      background-size: cover;
+      .project-card {
+        background: url(../assets/images/uci-ocw-1.png);
+        background-size: cover;
+      }
+    }
+
+    &.books-app {
+      .project-card {
+        background: url(../assets/images/books-app-1.png);
+        background-size: cover;
+      }
+    }
+
+    &.portfolio-old {
+      .project-card {
+        background: url(../assets/images/portfolio-old-1.png);
+        background-size: cover;
+      }
+    }
+
+    &.portfolio {
+      .project-card {
+        background: url(../assets/images/portfolio-1.png);
+        background-size: cover;
+      }
     }
   }
+
+  .project-card {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transition: all .5s;
+
+    &.-hover {
+      opacity: 0.1;
+      transform: scale(1.2);
+      transition: all .5s;
+    }
+  }
+
+  .ghost-button {
+    background-color: #FFF;
+    color: $ebony-clay;
+    pointer-events: all;
+    font-family: 'Lato';
+
+    .button-text {
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: $shamrock;
+      color: #FFF;
+    }
+  }
+}
+
+.projects-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0 auto;
+  height: 350px;
+  width: 500;
+  background-color: #FFF;
 }

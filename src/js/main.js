@@ -1,6 +1,7 @@
 import '../scss/style.scss';
 import aboutController from './aboutController';
 import navbarController from './navbarController';
+import projectsController from './projectsController';
 
 class MainController {
   animations() {
@@ -9,10 +10,13 @@ class MainController {
   }
 
   constructor() {
+    projectsController.attachListeners();
+
     window.onresize = () => {
       navbarController.navbarResizeListener();
 
       aboutController.aboutResizeListener();
+
     }
 
     window.onscroll = (event) => {

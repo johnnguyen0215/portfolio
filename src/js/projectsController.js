@@ -41,3 +41,70 @@
   - This website. Built with the help of webpack, babel, and sass.
 </div>
 */
+
+class ProjectsController {
+  projectCards;
+  hoveredContainers = [];
+
+  projectInfo = {
+  }
+
+  constructor() {
+    this.projectCardContainers =
+      document.querySelectorAll('.project-card-container');
+  }
+
+  attachListeners() {
+    this.projectCardContainers.forEach((container) => {
+      const card = container.querySelector('.project-card');
+      const overlay = container.querySelector('.project-card-overlay');
+      const infoButton = container.querySelector('.ghost-button');
+
+      container.addEventListener('mouseover', () => {
+        const card = container.querySelector('.project-card');
+
+        if (!card.classList.contains('-hover')) {
+          this.clearAllHoverStates();
+          this.hoveredContainers = [];
+          this.updateHoverState(card, overlay, 'add');
+          this.hoveredContainers.push(container);
+        }
+      });
+
+      container.addEventListener('mouseout', () => {
+        this.updateHoverState(card, overlay, 'remove');
+      })
+
+      infoButton.addEventListener('click', () => {
+
+      })
+    });
+  }
+
+  updateHoverState(card, overlay, action) {
+    if (card) {
+      card.classList[action]('-hover');
+    }
+
+    if (overlay) {
+      overlay.classList[action]('-hover');
+
+      const overlayText = overlay.querySelector('.project-card-text');
+      overlayText.classList[action]('animated', 'slideInLeft', 'faster');
+
+      const overlayButton = overlay.querySelector('.ghost-button');
+      overlayButton.classList[action]('animated', 'slideInRight', 'faster');
+    }
+  }
+
+  clearAllHoverStates() {
+    this.hoveredContainers.forEach((container) => {
+      const card = container.querySelector('.project-card');
+      const overlay = container.querySelector('.project-card-overlay');
+
+      this.updateHoverState(card, overlay, 'remove');
+    })
+  }
+}
+
+export default new ProjectsController();

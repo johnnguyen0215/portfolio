@@ -8,6 +8,8 @@
 @import "~animate.css/source/rotating_entrances/rotateInDownLeft.css";
 @import "~animate.css/source/rotating_entrances/rotateInUpRight.css";
 @import "~animate.css/source/rotating_entrances/rotateInUpLeft.css";
+@import "~animate.css/source/sliding_entrances/slideInLeft.css";
+@import "~animate.css/source/sliding_entrances/slideInRight.css";
 @import './common/colors';
 @import './home.scss';
 @import './about.scss';
@@ -71,6 +73,48 @@ body {
   box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
+
+.ghost-button {
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  width: 200px;
+  font-weight: bold;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+
+  .button-text {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .chevron {
+    fill: #fff;
+    transition: transform 0.3s ease-in-out;
+    height: 15px;
+    width: 15px;
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+
+    .chevron {
+      transform: rotate(90deg);
+      fill: #000;
+    }
+  }
+}
+
 
 // /* Small devices (portrait tablets and large phones, 600px and up) */
 // @media only screen and (min-width: 600px) {
