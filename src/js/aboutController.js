@@ -21,8 +21,8 @@ class AboutController {
 
   aboutResizeListener() {
     if (window.innerWidth < 992) {
-      portraitAnimation = 'fadeInTop';
-      ribbonAnimation = 'fadeInBottom';
+      this.portraitAnimation = 'fadeInTop';
+      this.ribbonAnimation = 'fadeInBottom';
     }
   }
 

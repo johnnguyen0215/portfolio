@@ -45,20 +45,29 @@
 class ProjectsController {
   projectCards;
   hoveredContainers = [];
-
-  projectInfo = {
-  }
+  currentOpenProject = '';
 
   constructor() {
     this.projectCardContainers =
       document.querySelectorAll('.project-card-container');
+
+    this.projectsModal = document.querySelector('.projects-modal');
   }
 
   attachListeners() {
+    const modalCloseButton = document.querySelector(
+      '.projects-modal .close-button',
+    );
+
+    modalCloseButton.addEventListener('click', () => {
+      this.closeProjectModal();
+    });
+
     this.projectCardContainers.forEach((container) => {
       const card = container.querySelector('.project-card');
       const overlay = container.querySelector('.project-card-overlay');
       const infoButton = container.querySelector('.ghost-button');
+      const projectClass = container.classList[1];
 
       container.addEventListener('mouseover', () => {
         const card = container.querySelector('.project-card');
@@ -76,7 +85,7 @@ class ProjectsController {
       })
 
       infoButton.addEventListener('click', () => {
-
+        this.openProjectModal(projectClass);
       })
     });
   }
@@ -104,6 +113,46 @@ class ProjectsController {
 
       this.updateHoverState(card, overlay, 'remove');
     })
+  }
+
+  openProjectModal(projectClass) {
+    if (this.currentOpenProject === projectClass) {
+      return;
+    }
+
+    if (this.currentOpenProject && this.currentOpenProject !== projectClass) {
+      this.switchProject(projectClass)
+    } else {
+      this.currentOpenProject = projectClass;
+    }
+
+    const projectTitle = this.projectsModal
+      .querySelector(`.project-title.${this.currentOpenProject}`);
+    const projectContent = this.projectsModal
+      .querySelector(`.project-content.${this.currentOpenProject}`);
+
+    projectTitle.style.display = 'block';
+    projectContent.style.display = 'block';
+
+    this.projectsModal.classList.add('showModal');
+  }
+
+  switchProject(newProject) {
+    const projectTitle = this.projectsModal
+      .querySelector(`.project-title.${this.currentOpenProject}`);
+    const projectContent = this.projectsModal
+      .querySelector(`.project-content.${this.currentOpenProject}`);
+
+    projectTitle.style.display = 'none';
+    projectContent.style.display = 'none';
+
+    this.currentOpenProject = newProject;
+  }
+
+  closeProjectModal() {
+    this.switchProject('');
+
+    this.projectsModal.classList.remove('showModal');
   }
 }
 
