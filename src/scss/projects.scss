@@ -125,8 +125,7 @@
     width: 100%;
     height: 350px;
 
-    .mhe-1 {
-      background: url(../assets/images/mhe-1.png);
+    .slideshow-image {
       background-size: cover;
       width: 100%;
       height: 100%;
@@ -135,6 +134,8 @@
 
   .description {
     padding: 20px;
+    max-height: 350px;
+    overflow-y: auto;
   }
 
   .projects-modal-header {

@@ -1,4 +1,4 @@
-
+import camelcase from 'camelcase';
 
 /*
 <div class="project-card mhe">
@@ -42,10 +42,66 @@
 </div>
 */
 
+// </div>
+// <div class="project-title uci-ocw">
+//   UCI OCW
+// </div>
+// <div class="project-title books-app">
+//   Books App
+// </div>
+// <div class="project-title portfolio-old">
+//   Portfolio (Old)
+// </div>
+// <div class="project-title portfolio">
+//   Portfolio
+
+const pathToImages = require.context('../assets/images/', true);
+
 class ProjectsController {
   projectCards;
   hoveredContainers = [];
   currentOpenProject = '';
+
+  projectData = {
+    mhe: {
+      title: 'McGraw Hill',
+      images: [
+        './mhe-1.png',
+        './mhe-2.png',
+        './mhe-3.png',
+        './mhe-4.png',
+        './mhe-5.png'
+      ]
+    },
+    uciOcw: {
+      title: 'UCI OpenCourseWare',
+      images: [
+        '../assets/images/uci-ocw-1.png',
+        '../assets/images/uci-ocw-2.png',
+      ]
+    },
+    booksApp: {
+      title: 'Books App',
+      images: [
+        '../assets/images/books-app-1.png',
+        '../assets/images/books-app-2.png',
+      ]
+    },
+    portfolioOld: {
+      title: 'Portfolio (Old)',
+      images: [
+        '../assets/images/portfolio-old-1.png',
+        '../assets/images/portfolio-old-2.png',
+      ]
+    },
+    portfolio: {
+      title: 'Portfolio',
+      images: [
+        '../assets/images/portfolio-1.png',
+        '../assets/images/portfolio-2.png',
+      ]
+    }
+  }
 
   constructor() {
     this.projectCardContainers =
@@ -134,6 +190,8 @@ class ProjectsController {
     projectTitle.style.display = 'block';
     projectContent.style.display = 'block';
 
+    this.buildSlideShow(projectClass, projectContent);
+
     this.projectsModal.classList.add('showModal');
   }
 
@@ -153,6 +211,22 @@ class ProjectsController {
     this.switchProject('');
 
     this.projectsModal.classList.remove('showModal');
+  }
+
+  buildSlideShow(projectClass, projectContent) {
+    const project = this.projectData[camelcase(projectClass)];
+    const slideShow = projectContent.querySelector('.slideshow');
+
+    if (project) {
+      project.images.forEach(async (imageUrl) => {
+        const imageElement = document.createElement('div');
+        imageElement.classList.add('slideshow-image');
+        console.log(pathToImages(imageUrl, true));
+        imageElement.style.background = `url('${pathToImages(imageUrl, true)}')`;
+
+        slideShow.appendChild(imageElement);
+      })
+    }
   }
 }
 
