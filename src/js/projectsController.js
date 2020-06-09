@@ -55,8 +55,6 @@ import camelcase from 'camelcase';
 // <div class="project-title portfolio">
 //   Portfolio
 
-const pathToImages = require.context('../assets/images/', true);
-
 class ProjectsController {
   projectCards;
   hoveredContainers = [];
@@ -65,40 +63,40 @@ class ProjectsController {
   projectData = {
     mhe: {
       title: 'McGraw Hill',
-      images: [
-        './mhe-1.png',
-        './mhe-2.png',
-        './mhe-3.png',
-        './mhe-4.png',
-        './mhe-5.png'
+      classes: [
+        'mhe-1',
+        'mhe-2',
+        'mhe-3',
+        'mhe-4',
+        'mhe-5'
       ]
     },
     uciOcw: {
       title: 'UCI OpenCourseWare',
-      images: [
-        '../assets/images/uci-ocw-1.png',
-        '../assets/images/uci-ocw-2.png',
+      classes: [
+        'uci-ocw-1',
+        'uci-ocw-2',
       ]
     },
     booksApp: {
       title: 'Books App',
-      images: [
-        '../assets/images/books-app-1.png',
-        '../assets/images/books-app-2.png',
+      classes: [
+        'books-app-1',
+        'books-app-2',
       ]
     },
     portfolioOld: {
       title: 'Portfolio (Old)',
-      images: [
-        '../assets/images/portfolio-old-1.png',
-        '../assets/images/portfolio-old-2.png',
+      classes: [
+        'portfolio-old-1',
+        'portfolio-old-2',
       ]
     },
     portfolio: {
       title: 'Portfolio',
-      images: [
-        '../assets/images/portfolio-1.png',
-        '../assets/images/portfolio-2.png',
+      classes: [
+        'portfolio-1',
+        'portfolio-2',
       ]
     }
   }
@@ -217,15 +215,12 @@ class ProjectsController {
     const project = this.projectData[camelcase(projectClass)];
     const slideShow = projectContent.querySelector('.slideshow');
 
-    if (project) {
-      project.images.forEach(async (imageUrl) => {
-        const imageElement = document.createElement('div');
-        imageElement.classList.add('slideshow-image');
-        console.log(pathToImages(imageUrl, true));
-        imageElement.style.background = `url('${pathToImages(imageUrl, true)}')`;
-
-        slideShow.appendChild(imageElement);
-      })
+    if (project && project.classes) {
+      project.classes.forEach((projectClass) => {
+        const slide = document.createElement('div');
+        slide.classList.add('slideshow-image', projectClass);
+        slideShow.appendChild(slide);
+      });
     }
   }
 }
