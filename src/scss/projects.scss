@@ -125,16 +125,83 @@
     width: 100%;
     height: 350px;
 
-    .mhe-1 {
-      background: url(../assets/images/mhe-1.png);
-      background-size: cover;
+    .slideshow-image {
       width: 100%;
       height: 100%;
+      display: none;
+
+      &.mhe-1 {
+        background: url('../assets/images/mhe-1.png');
+        background-size: cover;
+      }
+
+      &.mhe-2 {
+        background: url('../assets/images/mhe-2.png');
+        background-size: cover;
+      }
+
+      &.mhe-3 {
+        background: url('../assets/images/mhe-3.png');
+        background-size: cover;
+      }
+
+      &.mhe-4 {
+        background: url('../assets/images/mhe-4.png');
+        background-size: cover;
+      }
+
+      &.mhe-5 {
+        background: url('../assets/images/mhe-5.png');
+        background-size: cover;
+      }
+
+      &.uci-ocw-1 {
+        background: url('../assets/images/uci-ocw-1.png');
+        background-size: cover;
+      }
+
+      &.uci-ocw-1 {
+        background: url('../assets/images/uci-ocw-1.png');
+        background-size: cover;
+      }
+
+      &.books-app-1 {
+        background: url('../assets/images/books-app-1.png');
+        background-size: cover;
+      }
+
+      &.books-app-2 {
+        background: url('../assets/images/books-app-2.png');
+        background-size: cover;
+      }
+
+      &.portfolio-old-1 {
+        background: url('../assets/images/portfolio-old-1.png');
+        background-size: cover;
+      }
+
+
+      &.portfolio-old-2 {
+        background: url('../assets/images/portfolio-old-2.png');
+        background-size: cover;
+      }
+
+      &.portfolio-1 {
+        background: url('../assets/images/portfolio-1.png');
+        background-size: cover;
+      }
+
+      &.portfolio-2 {
+        background: url('../assets/images/portfolio-2.png');
+        background-size: cover;
+      }
     }
   }
 
   .description {
     padding: 20px;
+    max-height: 350px;
+    overflow-y: auto;
   }
 
   .projects-modal-header {

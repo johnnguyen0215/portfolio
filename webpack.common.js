@@ -31,7 +31,7 @@ const config = {
             options: {
               limit: 8192,
             },
-          },
+          }
         ],
       },
       {

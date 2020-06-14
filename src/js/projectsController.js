@@ -1,4 +1,4 @@
-
+import camelcase from 'camelcase';
 
 /*
 <div class="project-card mhe">
@@ -42,10 +42,64 @@
 </div>
 */
 
+// </div>
+// <div class="project-title uci-ocw">
+//   UCI OCW
+// </div>
+// <div class="project-title books-app">
+//   Books App
+// </div>
+// <div class="project-title portfolio-old">
+//   Portfolio (Old)
+// </div>
+// <div class="project-title portfolio">
+//   Portfolio
+
 class ProjectsController {
   projectCards;
   hoveredContainers = [];
   currentOpenProject = '';
+
+  projectData = {
+    mhe: {
+      title: 'McGraw Hill',
+      classes: [
+        'mhe-1',
+        'mhe-2',
+        'mhe-3',
+        'mhe-4',
+        'mhe-5'
+      ]
+    },
+    uciOcw: {
+      title: 'UCI OpenCourseWare',
+      classes: [
+        'uci-ocw-1',
+        'uci-ocw-2',
+      ]
+    },
+    booksApp: {
+      title: 'Books App',
+      classes: [
+        'books-app-1',
+        'books-app-2',
+      ]
+    },
+    portfolioOld: {
+      title: 'Portfolio (Old)',
+      classes: [
+        'portfolio-old-1',
+        'portfolio-old-2',
+      ]
+    },
+    portfolio: {
+      title: 'Portfolio',
+      classes: [
+        'portfolio-1',
+        'portfolio-2',
+      ]
+    }
+  }
 
   constructor() {
     this.projectCardContainers =
@@ -134,6 +188,8 @@ class ProjectsController {
     projectTitle.style.display = 'block';
     projectContent.style.display = 'block';
 
+    this.buildSlideShow(projectClass, projectContent);
+
     this.projectsModal.classList.add('showModal');
   }
 
@@ -153,6 +209,19 @@ class ProjectsController {
     this.switchProject('');
 
     this.projectsModal.classList.remove('showModal');
+  }
+
+  buildSlideShow(projectClass, projectContent) {
+    const project = this.projectData[camelcase(projectClass)];
+    const slideShow = projectContent.querySelector('.slideshow');
+
+    if (project && project.classes) {
+      project.classes.forEach((projectClass) => {
+        const slide = document.createElement('div');
+        slide.classList.add('slideshow-image', projectClass);
+        slideShow.appendChild(slide);
+      });
+    }
   }
 }
 
