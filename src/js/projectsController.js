@@ -59,6 +59,7 @@ class ProjectsController {
   projectCards;
   hoveredContainers = [];
   currentOpenProject = '';
+  currentSlideshow = null;
 
   projectData = {
     mhe: {
@@ -180,15 +181,15 @@ class ProjectsController {
       this.currentOpenProject = projectClass;
     }
 
-    const projectTitle = this.projectsModal
+    this.currentProjectTitle = this.projectsModal
       .querySelector(`.project-title.${this.currentOpenProject}`);
-    const projectContent = this.projectsModal
+    this.currentProjectContent = this.projectsModal
       .querySelector(`.project-content.${this.currentOpenProject}`);
 
-    projectTitle.style.display = 'block';
-    projectContent.style.display = 'block';
+    this.currentProjectTitle.style.display = 'block';
+    this.currentProjectContent.style.display = 'block';
 
-    this.buildSlideShow(projectClass, projectContent);
+    this.buildSlideShow();
 
     this.projectsModal.classList.add('showModal');
   }
@@ -196,6 +197,7 @@ class ProjectsController {
   switchProject(newProject) {
     const projectTitle = this.projectsModal
       .querySelector(`.project-title.${this.currentOpenProject}`);
+
     const projectContent = this.projectsModal
       .querySelector(`.project-content.${this.currentOpenProject}`);
 
@@ -208,18 +210,32 @@ class ProjectsController {
   closeProjectModal() {
     this.switchProject('');
 
+    if (this.currentSlideshow) {
+      this.currentSlideshow.innerHTML = '';
+    }
+
+    this.currentSlideshow = null;
+
+    this.currentOpenProject = '';
+
     this.projectsModal.classList.remove('showModal');
   }
 
-  buildSlideShow(projectClass, projectContent) {
+  buildSlideShow(projectClass) {
     const project = this.projectData[camelcase(projectClass)];
-    const slideShow = projectContent.querySelector('.slideshow');
+    this.currentSlideshow = this.currentProjectContent
+      .querySelector('.slideshow');
 
     if (project && project.classes) {
-      project.classes.forEach((projectClass) => {
+      project.classes.forEach((projectClass, index) => {
         const slide = document.createElement('div');
         slide.classList.add('slideshow-image', projectClass);
-        slideShow.appendChild(slide);
+
+        if (index === 0) {
+          slide.style.visibility = 'visible';
+        }
+
+        this.currentSlideshow.appendChild(slide);
       });
     }
   }

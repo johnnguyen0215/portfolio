@@ -128,7 +128,7 @@
     .slideshow-image {
       width: 100%;
       height: 100%;
-      display: none;
+      visibility: hidden;
 
       &.mhe-1 {
         background: url('../assets/images/mhe-1.png');
