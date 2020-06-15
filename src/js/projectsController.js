@@ -215,7 +215,7 @@ class ProjectsController {
     this.buildSlideShow();
 
     this.projectsModal.classList.remove('zoomOut');
-    this.projectsModal.classList.add('showModal');
+    this.projectsModal.style.visibility = 'visible';
     this.projectsModal.classList.add('animated', 'zoomIn', 'faster');
   }
 
