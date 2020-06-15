@@ -60,6 +60,9 @@ class ProjectsController {
   hoveredContainers = [];
   currentOpenProject = '';
   currentSlideshow = null;
+  currentSelectors = null;
+  currentSlide = null;
+  activeSelector = null;
 
   projectData = {
     mhe: {
@@ -116,6 +119,25 @@ class ProjectsController {
 
     modalCloseButton.addEventListener('click', () => {
       this.closeProjectModal();
+    });
+
+    document.addEventListener('click', (event) => {
+      const eventTarget = event.target;
+
+      let isSeeMoreButton = false;
+
+      if (eventTarget) {
+        isSeeMoreButton = eventTarget.classList.contains('see-more') ||
+          eventTarget.parentNode.classList.contains('see-more');
+      }
+
+      if (
+        !isSeeMoreButton &&
+        this.currentOpenProject &&
+        !this.projectsModal.contains(event.target)
+      ) {
+        this.closeProjectModal();
+      }
     });
 
     this.projectCardContainers.forEach((container) => {
@@ -183,15 +205,18 @@ class ProjectsController {
 
     this.currentProjectTitle = this.projectsModal
       .querySelector(`.project-title.${this.currentOpenProject}`);
+
     this.currentProjectContent = this.projectsModal
       .querySelector(`.project-content.${this.currentOpenProject}`);
 
     this.currentProjectTitle.style.display = 'block';
-    this.currentProjectContent.style.display = 'block';
+    this.currentProjectContent.style.display = 'flex';
 
     this.buildSlideShow();
 
+    this.projectsModal.classList.remove('zoomOut');
     this.projectsModal.classList.add('showModal');
+    this.projectsModal.classList.add('animated', 'zoomIn', 'faster');
   }
 
   switchProject(newProject) {
@@ -200,6 +225,8 @@ class ProjectsController {
 
     const projectContent = this.projectsModal
       .querySelector(`.project-content.${this.currentOpenProject}`);
+
+    this.clearProjectInstance();
 
     projectTitle.style.display = 'none';
     projectContent.style.display = 'none';
@@ -210,34 +237,82 @@ class ProjectsController {
   closeProjectModal() {
     this.switchProject('');
 
-    if (this.currentSlideshow) {
-      this.currentSlideshow.innerHTML = '';
-    }
+    this.clearProjectInstance();
 
-    this.currentSlideshow = null;
-
-    this.currentOpenProject = '';
-
-    this.projectsModal.classList.remove('showModal');
+    this.projectsModal.classList.add('zoomOut');
   }
 
-  buildSlideShow(projectClass) {
-    const project = this.projectData[camelcase(projectClass)];
+  buildSlideShow() {
+    const project = this.projectData[camelcase(this.currentOpenProject)];
     this.currentSlideshow = this.currentProjectContent
       .querySelector('.slideshow');
+
+    this.currentSelectors = this.currentProjectContent
+      .querySelector('.selectors');
 
     if (project && project.classes) {
       project.classes.forEach((projectClass, index) => {
         const slide = document.createElement('div');
         slide.classList.add('slideshow-image', projectClass);
 
+        this.currentSlideshow.appendChild(slide);
+
+        this.currentSlide = slide;
+
+        const selector = document.createElement('button');
+        selector.classList.add('image-selector', projectClass);
+
+        selector.addEventListener('click', () => {
+          const previousSelector = this.activeSelector;
+          previousSelector.classList.remove('active');
+
+          this.activeSelector = selector;
+          this.activeSelector.classList.add('active');
+
+          const previousSlide = this.currentSlide;
+          previousSlide.style.visibility = 'hidden';
+          previousSlide.classList.remove('animated', 'fadeIn', 'fast');
+
+          this.currentSlide = this.currentSlideshow.querySelector(
+            `.slideshow-image.${projectClass}`
+          );
+          this.currentSlide.style.visibility = 'visible';
+          this.currentSlide.classList.add('animated', 'fadeIn', 'fast');
+        });
+
         if (index === 0) {
-          slide.style.visibility = 'visible';
+          this.currentSlide.style.visibility = 'visible';
+          selector.classList.add('active');
+          this.activeSelector = selector;
         }
 
-        this.currentSlideshow.appendChild(slide);
+        this.currentSelectors.appendChild(selector);
       });
     }
+  }
+
+  setSlideImage() {
+
+  }
+
+  clearProjectInstance() {
+    if (this.currentSlideshow) {
+      this.currentSlideshow.innerHTML = '';
+    }
+
+    if (this.currentSelectors) {
+      this.currentSelectors.innerHTML = '';
+    }
+
+    this.currentSlideshow = null;
+
+    this.currentSelectors = null;
+
+    this.activeSelector = null;
+
+    this.currentSlide = null;
+
+    this.currentOpenProject = '';
   }
 }
 

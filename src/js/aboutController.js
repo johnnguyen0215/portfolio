@@ -31,10 +31,10 @@ class AboutController {
       this.aboutHeading.style.visibility = 'visible';
 
       const heading = document.querySelector('#about .section-header');
-      heading.classList.add('animated', 'fadeInLeft', 'faster');
+      heading.classList.add('animated', 'fadeInLeft', 'fast');
 
       const underline = document.querySelector('#about .underline');
-      underline.classList.add('animated', 'fadeInRight', 'faster');
+      underline.classList.add('animated', 'fadeInRight', 'fast');
 
       this.headingAnimationTriggered = true;
     }
@@ -52,11 +52,11 @@ class AboutController {
         '#about .portrait-container',
       );
 
-      portraitElement.classList.add('animated', this.portraitAnimation, 'faster');
+      portraitElement.classList.add('animated', this.portraitAnimation, 'fast');
 
       const ribbonElement = document.querySelector('#about .about-ribbon');
 
-      ribbonElement.classList.add('animated', this.ribbonAnimation, 'faster');
+      ribbonElement.classList.add('animated', this.ribbonAnimation, 'fast');
 
       this.descriptionAnimationTriggered = true;
     }

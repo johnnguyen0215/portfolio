@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import "~animate.css/source/_base.css";
+@import "~animate.css/source/fading_entrances/fadeIn.css";
 @import "~animate.css/source/fading_entrances/fadeInDown.css";
 @import "~animate.css/source/fading_entrances/fadeInUp.css";
 @import "~animate.css/source/fading_entrances/fadeInLeft.css";
@@ -10,6 +11,8 @@
 @import "~animate.css/source/rotating_entrances/rotateInUpLeft.css";
 @import "~animate.css/source/sliding_entrances/slideInLeft.css";
 @import "~animate.css/source/sliding_entrances/slideInRight.css";
+@import "~animate.css/source/zooming_entrances/zoomIn.css";
+@import "~animate.css/source/zooming_exits/zoomOut.css";
 @import './common/colors';
 @import './home.scss';
 @import './about.scss';
