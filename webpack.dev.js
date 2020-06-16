@@ -8,4 +8,4 @@ module.exports = merge(common, {
     watchContentBase: true,
     port: 8080
   }
-})
+});
