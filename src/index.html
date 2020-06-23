@@ -359,14 +359,77 @@
           <h1 class="section-header">CONTACT</h1>
           <div class="underline"></div>
         </div>
-        <form>
-          <input placeholder="Name" type="text" name="name" required>
-          <input placeholder="Enter email" type="email" name="email" required>
-          <textarea placeholder="Your message" type="text" name="message"></textarea>
-          <input class="ghost-button" type="submit"></input>
-        </form>
+        <div class="contact-container">
+          <div class="contact-card">
+            <form class="contact-form">
+              <div class="form-section">
+                <input class="form-input" type="text" name="name" id="name" required>
+                <label for="name">
+                  Name
+                </label>
+              </div>
+              <div class="form-section">
+                <input class="form-input" type="email" name="email" id="email" required>
+                <label for="email">
+                  Email
+                </label>
+              </div>
+              <div class="form-section">
+                <textarea class="form-input" type="text" name="message" id="message"></textarea>
+                <label for="message">
+                  Message
+                </label>
+              </div>
+              <label for="contact-info">
+                Contact Information
+              </label>
+              <div id="contact-info">
+                <div>
+                  <span>Email: </span>
+                  <a href="mailto:johnnguyen0215@gmail.com">
+                    johnnguyen0215@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <span>Phone: </span>
+                  <a href="tel:714-248-5859">714-248-5859</a>
+                </div>
+              </div>
+              <input class="ghost-button" type="submit" id="submit"></input>
+            </form>
+          </div>
       </div>
     </section>
+    <footer>
+      <div class="media-buttons">
+        <a
+          href="https://www.linkedin.com/in/john-e-nguyen/"
+          type="button"
+          id="linkedin-button"
+          target="_blank"
+        >
+        </a>
+        <a
+          href="https://github.com/johnnguyen0215"
+          type="button"
+          id="github-button"
+          target="_blank"
+        >
+        </a>
+        <a
+          href="https://www.facebook.com/johnnguyen0215"
+          type="button"
+          id="facebook-button"
+          target="_blank"
+        >
+        </a>
+      </div>
+      <div class="licensing">
+        <span>John Nguyen</span>
+        <div class="creative-common">
+        </div>
+      </div>
+    </footer
   </div>
 </body>
 
