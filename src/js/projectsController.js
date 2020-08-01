@@ -63,6 +63,7 @@ class ProjectsController {
   currentSelectors = null;
   currentSlide = null;
   activeSelector = null;
+  projectsOffsetTop = document.querySelector('#projects').offsetTop - 50;
 
   projectData = {
     mhe: {

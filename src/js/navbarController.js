@@ -10,10 +10,69 @@ class NavbarController {
 
   menuOpen = false;
   navbarFixed = false;
+  offsetValues = {}
 
   constructor() {
+    this.toggleMenuOpen = this.toggleMenuOpen.bind(this);
+    this.getAboutOffsetTop = this.getAboutOffsetTop.bind(this);
+    this.getProjectsOffsetTop = this.getProjectsOffsetTop.bind(this);
+
+    this.attachEventListeners();
+
+    this.offsetValues = {
+      home: this.getHomeOffsetTop,
+      about: this.getAboutOffsetTop,
+      projects: this.getProjectsOffsetTop,
+      contact: this.getContactOffsetTop,
+    }
+  }
+
+  getHomeOffsetTop() {
+    return document.querySelector('#home').offsetTop;
+  }
+
+  getAboutOffsetTop() {
+    let offsetTop = document.querySelector('#about').offsetTop - 50;
+
+    if (this.navbarFixed) {
+      offsetTop += 56;
+    }
+
+    return offsetTop;
+  }
+
+  getProjectsOffsetTop() {
+    let offsetTop = document.querySelector('#projects').offsetTop - 50;
+
+    return offsetTop;
+  }
+
+  getContactOffsetTop() {
+    return document.querySelector('#contact').offsetTop;
+  }
+
+  attachEventListeners() {
     this.burger.addEventListener('click', this.toggleMenuOpen);
     this.sideNavBurger.addEventListener('click', this.toggleMenuOpen);
+
+    const navbars = document.querySelectorAll('.navbar-nav');
+
+    navbars.forEach((navbar) => {
+      const links = navbar.querySelectorAll('a');
+
+      links.forEach((link) => {
+        const sectionLink = link.dataset.sectionLink;
+
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          window.scroll({
+            top: this.offsetValues[sectionLink](),
+            behavior: 'smooth'
+          })
+        })
+      })
+    })
   }
 
   toggleMenuOpen(forceTo) {

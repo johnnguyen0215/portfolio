@@ -2,6 +2,7 @@ import '../scss/style.scss';
 import aboutController from './aboutController';
 import navbarController from './navbarController';
 import projectsController from './projectsController';
+import footerController from './footerController';
 
 class MainController {
   animations() {

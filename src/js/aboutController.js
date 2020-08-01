@@ -12,6 +12,8 @@ class AboutController {
   descriptionBreakpoint = 900;
   graphBreakpoint = 930;
 
+  aboutOffsetTop = document.querySelector('#about').offsetTop - 50;
+
   constructor() {
     if (window.innerWidth < 992) {
       this.portraitAnimation = 'fadeInDown';
