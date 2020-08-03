@@ -23,6 +23,8 @@ class MainController {
     window.onscroll = (event) => {
       navbarController.navbarPositioning();
 
+      navbarController.setActiveLink();
+
       this.animations();
     }
   }

@@ -1,6 +1,4 @@
 class AboutController {
-  aboutHeading = document.querySelector('#about .section-header-container');
-
   portraitAnimation = 'fadeInLeft';
   ribbonAnimation = 'fadeInRight';
 
@@ -19,6 +17,14 @@ class AboutController {
       this.portraitAnimation = 'fadeInDown';
       this.ribbonAnimation = 'fadeInUp';
     }
+  }
+
+  get aboutSection() {
+    return document.querySelector('#about');
+  }
+
+  get aboutHeading() {
+    return document.querySelector('#about .section-header-container');
   }
 
   aboutResizeListener() {

@@ -113,6 +113,10 @@ class ProjectsController {
     this.projectsModal = document.querySelector('.projects-modal');
   }
 
+  get projectsSection() {
+    return document.querySelector('#projects');
+  }
+
   attachListeners() {
     const modalCloseButton = document.querySelector(
       '.projects-modal .close-button',

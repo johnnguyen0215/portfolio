@@ -1,5 +1,14 @@
 import aboutController from './aboutController';
 import homeController from './homeController';
+import projectsController from './projectsController';
+import contactController from './contactController';
+
+const sections = Object.freeze({
+  HOME: 'home',
+  ABOUT: 'about',
+  PROJECTS: 'projects',
+  CONTACT: 'contact',
+});
 
 class NavbarController {
   content = document.querySelector('.content');
@@ -7,6 +16,8 @@ class NavbarController {
   burger = document.querySelector('.navbar .burger');
   sideNavBurger = document.querySelector('.side-nav .burger');
   sideNav = document.querySelector('.side-nav');
+
+  currentActiveSection = null;
 
   menuOpen = false;
   navbarFixed = false;
@@ -20,35 +31,36 @@ class NavbarController {
     this.attachEventListeners();
 
     this.offsetValues = {
-      home: this.getHomeOffsetTop,
-      about: this.getAboutOffsetTop,
-      projects: this.getProjectsOffsetTop,
-      contact: this.getContactOffsetTop,
+      [sections.HOME]: this.getHomeOffsetTop,
+      [sections.ABOUT]: this.getAboutOffsetTop,
+      [sections.PROJECTS]: this.getProjectsOffsetTop,
+      [sections.CONTACT]: this.getContactOffsetTop,
     }
+
+    this.currentActiveSection = sections.HOME;
   }
 
   getHomeOffsetTop() {
-    return document.querySelector('#home').offsetTop;
+    return homeController.homeSection.offsetTop;
   }
 
   getAboutOffsetTop() {
-    let offsetTop = document.querySelector('#about').offsetTop - 50;
+    const aboutSection = aboutController.aboutSection;
+    let offsetTop = aboutSection.offsetTop - 50;
 
     if (this.navbarFixed) {
-      offsetTop += 56;
+      offsetTop += this.navbar.clientHeight;
     }
 
     return offsetTop;
   }
 
   getProjectsOffsetTop() {
-    let offsetTop = document.querySelector('#projects').offsetTop - 50;
-
-    return offsetTop;
+    return projectsController.projectsSection.offsetTop - 50;
   }
 
   getContactOffsetTop() {
-    return document.querySelector('#contact').offsetTop;
+    return contactController.contactSection.offsetTop - 50
   }
 
   attachEventListeners() {
@@ -93,17 +105,54 @@ class NavbarController {
     }
   }
 
+  modifyActiveLink(activeSection) {
+    const activeSectionLinks = document.querySelectorAll(
+      `[data-section-link="${this.currentActiveSection}"]`
+    );
+
+    activeSectionLinks.forEach((sectionLink) => {
+      sectionLink.classList.remove('active');
+    })
+
+    const sectionLinks = document.querySelectorAll(
+      `[data-section-link="${activeSection}"]`
+    );
+
+    sectionLinks.forEach((sectionLink) => {
+      sectionLink.classList.add('active');
+    })
+
+    this.currentActiveSection = activeSection;
+  }
+
+  setActiveLink() {
+    const pageYOffset = window.pageYOffset;
+
+    if (pageYOffset < this.offsetValues[sections.ABOUT]()) {
+      this.modifyActiveLink(sections.HOME);
+    } else if (pageYOffset < this.offsetValues[sections.PROJECTS]()) {
+      this.modifyActiveLink(sections.ABOUT);
+    } else if (pageYOffset < this.offsetValues[sections.CONTACT]()) {
+      this.modifyActiveLink(sections.PROJECTS);
+    } else {
+      this.modifyActiveLink(sections.CONTACT);
+    }
+  }
+
   navbarPositioning() {
-    if (homeController.homeSection.getBoundingClientRect().bottom <= 0 && !this.navbarFixed) {
+    const { homeSection } = homeController;
+    const { aboutHeading } = aboutController;
+
+    if (homeSection.getBoundingClientRect().bottom <= 0 && !this.navbarFixed) {
       this.navbar.classList.add('-fixed');
       this.navbarFixed = true;
 
-      aboutController.aboutHeading.style.marginTop =
+      aboutHeading.style.marginTop =
         (this.navbar.offsetHeight + 50).toString() + 'px';
     } else if (homeController.homeSection.getBoundingClientRect().bottom > 0 && this.navbarFixed) {
       this.navbar.classList.remove('-fixed');
       this.navbarFixed = false;
-      aboutController.aboutHeading.style.marginTop = '50px';
+      aboutHeading.style.marginTop = '50px';
     }
   }
 
