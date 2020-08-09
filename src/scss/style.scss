@@ -63,12 +63,12 @@ body {
   color: $snow-drift;
 
   &:hover {
-    color: $shamrock;
+    color: $blue;
   }
 
   &.active {
     color: $shamrock;
-    transition: color 0.3s;
+    transition: color 0.1s;
   }
 }
 
