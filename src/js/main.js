@@ -3,6 +3,7 @@ import aboutController from './aboutController';
 import navbarController from './navbarController';
 import projectsController from './projectsController';
 import footerController from './footerController';
+import { debounce } from './helpers/debounce';
 
 class MainController {
   animations() {
@@ -11,22 +12,11 @@ class MainController {
   }
 
   constructor() {
-    projectsController.attachListeners();
+    projectsController.attachEventListeners();
+    navbarController.attachEventListeners();
+    aboutController.attachEventListeners();
 
-    window.onresize = () => {
-      navbarController.navbarResizeListener();
-
-      aboutController.aboutResizeListener();
-
-    }
-
-    window.onscroll = (event) => {
-      navbarController.navbarPositioning();
-
-      navbarController.setActiveLink();
-
-      this.animations();
-    }
+    window.addEventListener('scroll', this.animations);
   }
 }
 

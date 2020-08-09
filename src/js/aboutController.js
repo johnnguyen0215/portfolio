@@ -27,6 +27,10 @@ class AboutController {
     return document.querySelector('#about .section-header-container');
   }
 
+  attachEventListeners() {
+    window.addEventListener('resize', this.aboutResizeListener);
+  }
+
   aboutResizeListener() {
     if (window.innerWidth < 992) {
       this.portraitAnimation = 'fadeInTop';

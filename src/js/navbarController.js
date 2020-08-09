@@ -3,6 +3,8 @@ import homeController from './homeController';
 import projectsController from './projectsController';
 import contactController from './contactController';
 
+import { debounce } from './helpers/debounce';
+
 const sections = Object.freeze({
   HOME: 'home',
   ABOUT: 'about',
@@ -28,8 +30,6 @@ class NavbarController {
     this.getAboutOffsetTop = this.getAboutOffsetTop.bind(this);
     this.getProjectsOffsetTop = this.getProjectsOffsetTop.bind(this);
 
-    this.attachEventListeners();
-
     this.offsetValues = {
       [sections.HOME]: this.getHomeOffsetTop,
       [sections.ABOUT]: this.getAboutOffsetTop,
@@ -38,6 +38,10 @@ class NavbarController {
     }
 
     this.currentActiveSection = sections.HOME;
+
+    this.navbarPositioning = this.navbarPositioning.bind(this);
+    this.setActiveLink = this.setActiveLink.bind(this);
+    this.navbarResizeListener = this.navbarResizeListener.bind(this);
   }
 
   getHomeOffsetTop() {
@@ -85,6 +89,12 @@ class NavbarController {
         })
       })
     })
+
+    window.addEventListener('resize', this.navbarResizeListener);
+
+    window.addEventListener('scroll', this.navbarPositioning);
+
+    window.addEventListener('scroll', debounce(this.setActiveLink, 300));
   }
 
   toggleMenuOpen(forceTo) {

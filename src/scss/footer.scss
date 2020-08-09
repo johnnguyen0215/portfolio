@@ -7,7 +7,13 @@ footer {
   align-items: center;
   z-index: 2;
   position: relative;
-  border-top: 2px solid $shamrock;
+
+  hr {
+    margin-top: 0;
+    height: 2px;
+    width: 100%;
+    background-color: $shamrock;
+  }
 
   .back-to-top {
     display: flex;
@@ -19,12 +25,16 @@ footer {
     border: none;
     outline: none;
     background-color: $shamrock;
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
     position: absolute;
     margin-top: -60px;
 
     &:hover {
       background-color: $blue;
+
+      ~ hr {
+        background-color: $blue;
+      }
     }
   }
 
@@ -60,7 +70,7 @@ footer {
   }
 
   .licensing {
-    color: #FFF;
+    color: #fff;
     display: flex;
     align-items: center;
     text-transform: uppercase;

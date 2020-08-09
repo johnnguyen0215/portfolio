@@ -117,7 +117,7 @@ class ProjectsController {
     return document.querySelector('#projects');
   }
 
-  attachListeners() {
+  attachEventListeners() {
     const modalCloseButton = document.querySelector(
       '.projects-modal .close-button',
     );
