@@ -2,6 +2,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Webpack Configuration
 const config = {
@@ -13,15 +15,12 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/,
         use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          // Compiles Sass to CSS
           'sass-loader',
-        ],
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg|jpeg)$/i,
@@ -50,6 +49,9 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
+    }),
+    new MiniCssExtractPlugin({
+      fileName: 'dist/[name].css'
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()

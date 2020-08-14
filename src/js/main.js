@@ -2,8 +2,6 @@ import '../scss/style.scss';
 import aboutController from './aboutController';
 import navbarController from './navbarController';
 import projectsController from './projectsController';
-import footerController from './footerController';
-import { debounce } from './helpers/debounce';
 
 class MainController {
   animations() {
