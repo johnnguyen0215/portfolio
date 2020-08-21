@@ -30,9 +30,9 @@
   </div>
   <div class="content">
     <section id="home" class="parallax-container">
-      <div class="intro-text animated fadeInLeft fast">John E. Nguyen</div>
-      <div class="divider animated fadeIn slow"></div>
-      <div class="intro-text animated fadeInRight fast">
+      <div class="intro-text -name">John E. Nguyen</div>
+      <div class="divider"></div>
+      <div class="intro-text -title">
         Software Engineer
       </div>
       <a class="ghost-button" id="view-portfolio-button" href="#projects">
@@ -66,13 +66,18 @@
     <section id="about">
       <div class="container">
         <div class="section-header-container">
-          <h1 class="section-header">ABOUT</h1>
-          <div class="underline"></div>
+          <div class="header-wrapper">
+            <div class="header-dash -left"></div>
+            <div>
+              <h1 class="section-header">ABOUT</h1>
+            </div>
+            <div class="header-dash -right"></div>
+          </div>
         </div>
         <div class="qualities">
           <div class="qualities-container">
             <div class="accessible">
-              <div class="diamond">
+              <div class="diamond spinin">
                 <div class="diamond-inner">
                   <span class="quality-text">Accessible</span>
                   <div class="icon -accessible"></div>
@@ -118,11 +123,17 @@
             <div class="card">
               <div class="text">
                 <p>
-                  A software engineer, from Orange County California
-                  currently working at McGraw Hill who takes pride in creating
-                  eye-pleasing, responsive, fast, and efficient web applications.
-                  Primarily a front-end developer specializing in React and
-                  Angular but having done some full-stack development with NodeJS and PHP.
+                  Hi! I'm <strong>John</strong>,
+                  a software engineer from Orange County California
+                  currently working at McGraw Hill. I take pride in creating
+                  clean, efficient, and intuitive web applications. I love working smart
+                  to bring my ideas to fruition.
+                  <br />
+                  <br />
+                  Primarily, I am a front-end developer specializing in React and
+                  Angular but I'm no stranger to full-stack development with NodeJS and PHP in the backend.
+
+                  When I'm not coding, I'm either reading about code, gaming, watching streams, or working out.
                 </p>
                 <p>
                   Want to build something great together?
@@ -192,233 +203,244 @@
     <section id="projects">
       <div class="container">
         <div class="section-header-container">
-          <h1 class="section-header">PROJECTS</h1>
-          <div class="underline"></div>
-        </div>
-        <div class="projects-container">
-          <div class="project-card-container mhe">
-            <div class="project-card">
+          <div class="header-wrapper">
+            <div class="header-dash -left"></div>
+            <div>
+              <h1 class="section-header">PROJECTS</h1>
             </div>
-            <div class="project-card-overlay">
-              <div class="project-card-text">
-                McGraw Hill
-              </div>
-              <button class="see-more ghost-button">
-                <span class="button-text">See More</span>
-              </button>
-            </div>
-          </div>
-          <div class="project-card-container uci-ocw">
-            <div class="project-card">
-            </div>
-            <div class="project-card-overlay">
-              <div class="project-card-text">
-                UCI OpenCourseWare
-              </div>
-              <button class="see-more ghost-button">
-                <span class="button-text">See More</span>
-              </button>
-            </div>
-          </div>
-          <div class="project-card-container books-app">
-            <div class="project-card">
-            </div>
-            <div class="project-card-overlay">
-              <div class="project-card-text">
-                Bookie App
-              </div>
-              <button class="see-more ghost-button">
-                <span class="button-text">See More</span>
-              </button>
-            </div>
-          </div>
-          <div class="project-card-container portfolio-old">
-            <div class="project-card">
-            </div>
-            <div class="project-card-overlay">
-              <div class="project-card-text">
-                Portfolio (Old)
-              </div>
-              <button class="see-more ghost-button">
-                <span class="button-text">See More</span>
-              </button>
-            </div>
-          </div>
-          <div class="project-card-container portfolio">
-            <div class="project-card">
-            </div>
-            <div class="project-card-overlay">
-              <div class="project-card-text">
-                Portfolio
-              </div>
-              <button class="see-more ghost-button">
-                <span class="button-text">See More</span>
-              </button>
-            </div>
+            <div class="header-dash -right"></div>
           </div>
         </div>
-        <div class="projects-modal">
-          <div class="projects-modal-header">
-            <div class="close-button">
-            </div>
-            <div class="project-title mhe">
+      </div>
+      <div class="projects-container">
+        <div class="project-card-container mhe">
+          <div class="project-card">
+          </div>
+          <div class="project-card-overlay">
+            <div class="project-card-text">
               McGraw Hill
             </div>
-            <div class="project-title uci-ocw">
-              UCI OCW
+            <button class="see-more ghost-button">
+              <span class="button-text">See More</span>
+            </button>
+          </div>
+        </div>
+        <div class="project-card-container uci-ocw">
+          <div class="project-card">
+          </div>
+          <div class="project-card-overlay">
+            <div class="project-card-text">
+              UCI OpenCourseWare
             </div>
-            <div class="project-title books-app">
-              Books App
+            <button class="see-more ghost-button">
+              <span class="button-text">See More</span>
+            </button>
+          </div>
+        </div>
+        <div class="project-card-container books-app">
+          <div class="project-card">
+          </div>
+          <div class="project-card-overlay">
+            <div class="project-card-text">
+              Bookie App
             </div>
-            <div class="project-title portfolio-old">
+            <button class="see-more ghost-button">
+              <span class="button-text">See More</span>
+            </button>
+          </div>
+        </div>
+        <div class="project-card-container portfolio-old">
+          <div class="project-card">
+          </div>
+          <div class="project-card-overlay">
+            <div class="project-card-text">
               Portfolio (Old)
             </div>
-            <div class="project-title portfolio">
+            <button class="see-more ghost-button">
+              <span class="button-text">See More</span>
+            </button>
+          </div>
+        </div>
+        <div class="project-card-container portfolio">
+          <div class="project-card">
+          </div>
+          <div class="project-card-overlay">
+            <div class="project-card-text">
               Portfolio
             </div>
-          </div>
-          <div class="project-content mhe">
-            <div class="slideshow">
-            </div>
-            <div class="selectors">
-            </div>
-            <div class="description">
-              - Developed UI functionality in Angular, React, JQuery, PHP, and Node for primary test-taking platform,
-              helping the company adopt millions of users from schools across the nation.
-              - Managed and developed lerna mono repository encapsulating several important packages used company-wide,
-              streamlining
-              the deployment of these packages for rapid development
-              - Technical expert on question rendering library used across a multitude of services. Was Responsible for
-              answering all technical questions and resolving high priority issues.
-              - Responsible for building and optimizing continuous integration workflow for my team.
-              - Built authentication wrapper around demo site.
-              - Built and improved accessibility of application in order for company to meet WCAG 2.0 standards.
-            </div>
-            <div class="responsibilities">
-            </div>
-          </div>
-          <div class="project-content uci-ocw">
-            <div class="slideshow">
-            </div>
-            <div class="selectors">
-            </div>
-            <div class="description">
-              - Platform I worked on during my internship at UCI OpenCourseWare.
-              - Developed and maintained web application supporting users world-wide desired access to
-              recorded lectures online, allowing the luxury of learning from actual UCI professors.
-              - Development on the LAMP stack with jQuery on the frontend and Zend on the backend.
-              - Developed UCI OpenChem web application as a prototype to exemplify a seamless way for students to
-              collaborate
-              online.
-              - Implemented a collaborative drawing canvas tool where students were able to whiteboard asynchronously
-              - Integrated a google hangouts api for students to webcam while studying.
-              Powered By: AngularJS, Laravel.
-            </div>
-          </div>
-          <div class="project-content books-app">
-            <div class="slideshow">
-            </div>
-            <div class="selectors">
-            </div>
-            <div class="description">
-              - Startup project that I worked on with a few colleagues who were inspired by the financial burder of
-              expensive
-              college textbooks.
-              Meant to facilitate a quick and easy way for students to buy/sell/trade used books at their enrolled
-              college/university.
-              - Built authentication system using passportjs
-              - Integrated google books api into search engine for finding books.
-              Powered By: React, NodeJS.
-            </div>
-          </div>
-          <div class="project-content portfolio-old">
-            <div class="slideshow">
-            </div>
-            <div class="selectors">
-            </div>
-            <div class="description">
-              - My first portfolio site built in jquery and html+css
-            </div>
-          </div>
-          <div class="project-content portfolio">
-            <div class="slideshow">
-            </div>
-            <div class="selectors">
-            </div>
-            <div class="description">
-              - This website. Built with the help of webpack, babel, and sass.
-            </div>
+            <button class="see-more ghost-button">
+              <span class="button-text">See More</span>
+            </button>
           </div>
         </div>
       </div>
-    </section>
-    <section id="contact">
-      <div class="container">
-        <div class="section-header-container">
-          <h1 class="section-header">CONTACT</h1>
-          <div class="underline"></div>
+      <div class="projects-modal">
+        <div class="projects-modal-header">
+          <div class="close-button">
+          </div>
+          <div class="project-title mhe">
+            McGraw Hill
+          </div>
+          <div class="project-title uci-ocw">
+            UCI OCW
+          </div>
+          <div class="project-title books-app">
+            Books App
+          </div>
+          <div class="project-title portfolio-old">
+            Portfolio (Old)
+          </div>
+          <div class="project-title portfolio">
+            Portfolio
+          </div>
         </div>
-        <div class="contact-container">
-          <div class="contact-card">
-            <form class="contact-form">
-              <div class="form-section">
-                <input class="form-input" type="text" name="name" id="name" required>
-                <label for="name">
-                  Name
-                </label>
-              </div>
-              <div class="form-section">
-                <input class="form-input" type="email" name="email" id="email" required>
-                <label for="email">
-                  Email
-                </label>
-              </div>
-              <div class="form-section">
-                <textarea class="form-input" type="text" name="message" id="message"></textarea>
-                <label for="message">
-                  Message
-                </label>
-              </div>
-              <label for="contact-info">
-                Contact Information
+        <div class="project-content mhe">
+          <div class="slideshow">
+          </div>
+          <div class="selectors">
+          </div>
+          <div class="description">
+            - Developed UI functionality in Angular, React, JQuery, PHP, and Node for primary test-taking platform,
+            helping the company adopt millions of users from schools across the nation.
+            - Managed and developed lerna mono repo encapsulating several important packages used company-wide,
+            streamlining
+            the deployment of these packages for rapid development
+            - Technical expert on question rendering library used across a multitude of services. Was Responsible for
+            answering all technical questions and resolving high priority issues.
+            - Responsible for building and optimizing continuous integration workflow for my team.
+            - Built authentication wrapper around demo site.
+            - Built and improved accessibility of application in order for company to meet WCAG 2.0 standards.
+          </div>
+          <div class="responsibilities">
+          </div>
+        </div>
+        <div class="project-content uci-ocw">
+          <div class="slideshow">
+          </div>
+          <div class="selectors">
+          </div>
+          <div class="description">
+            - Platform I worked on during my internship at UCI OpenCourseWare.
+            - Developed and maintained web application supporting users world-wide desired access to
+            recorded lectures online, allowing the luxury of learning from actual UCI professors.
+            - Development on the LAMP stack with jQuery on the frontend and Zend on the backend.
+            - Developed UCI OpenChem web application as a prototype to exemplify a seamless way for students to
+            collaborate
+            online.
+            - Implemented a collaborative drawing canvas tool where students were able to whiteboard asynchronously
+            - Integrated a google hangouts api for students to webcam while studying.
+            Powered By: AngularJS, Laravel.
+          </div>
+        </div>
+        <div class="project-content books-app">
+          <div class="slideshow">
+          </div>
+          <div class="selectors">
+          </div>
+          <div class="description">
+            - Startup project that I worked on with a few colleagues who were inspired by the financial burder of
+            expensive
+            college textbooks.
+            Meant to facilitate a quick and easy way for students to buy/sell/trade used books at their enrolled
+            college/university.
+            - Built authentication system using passportjs
+            - Integrated google books api into search engine for finding books.
+            Powered By: React, NodeJS.
+          </div>
+        </div>
+        <div class="project-content portfolio-old">
+          <div class="slideshow">
+          </div>
+          <div class="selectors">
+          </div>
+          <div class="description">
+            - My first portfolio site built in jquery and html+css
+          </div>
+        </div>
+        <div class="project-content portfolio">
+          <div class="slideshow">
+          </div>
+          <div class="selectors">
+          </div>
+          <div class="description">
+            - This website. Built with the help of webpack, babel, and sass.
+          </div>
+        </div>
+      </div>
+  </div>
+  </section>
+  <section id="contact">
+    <div class="container">
+      <div class="section-header-container">
+        <div class="header-wrapper">
+          <div class="header-dash -left"></div>
+          <div>
+            <h1 class="section-header">CONTACT</h1>
+          </div>
+          <div class="header-dash -right"></div>
+        </div>
+      </div>
+      <div class="contact-container">
+        <div class="contact-card">
+          <form class="contact-form">
+            <div class="form-section">
+              <input class="form-input" type="text" name="name" id="name" required>
+              <label for="name">
+                Name
               </label>
-              <div id="contact-info">
-                <div>
-                  <span>Email: </span>
-                  <a href="mailto:johnnguyen0215@gmail.com">
-                    johnnguyen0215@gmail.com
-                  </a>
-                </div>
-                <div>
-                  <span>Phone: </span>
-                  <a href="tel:714-248-5859">714-248-5859</a>
-                </div>
+            </div>
+            <div class="form-section">
+              <input class="form-input" type="email" name="email" id="email" required>
+              <label for="email">
+                Email
+              </label>
+            </div>
+            <div class="form-section">
+              <textarea class="form-input" type="text" name="message" id="message"></textarea>
+              <label for="message">
+                Message
+              </label>
+            </div>
+            <label for="contact-info">
+              Contact Information
+            </label>
+            <div id="contact-info">
+              <div>
+                <span>Email: </span>
+                <a href="mailto:johnnguyen0215@gmail.com">
+                  johnnguyen0215@gmail.com
+                </a>
               </div>
-              <input class="ghost-button" type="submit" id="submit"></input>
-            </form>
-          </div>
+              <div>
+                <span>Phone: </span>
+                <a href="tel:714-248-5859">714-248-5859</a>
+              </div>
+            </div>
+            <input class="ghost-button" type="submit" id="submit"></input>
+          </form>
         </div>
       </div>
-    </section>
-    <footer>
-      <button class="back-to-top" id="back-to-top">
-        <div class="angle-icon"></div>
-      </button>
-      <hr>
-      <div class="media-buttons">
-        <a href="https://www.linkedin.com/in/john-e-nguyen/" type="button" id="linkedin-button" target="_blank">
-        </a>
-        <a href="https://github.com/johnnguyen0215" type="button" id="github-button" target="_blank">
-        </a>
-        <a href="https://www.facebook.com/johnnguyen0215" type="button" id="facebook-button" target="_blank">
-        </a>
+    </div>
+  </section>
+  <footer>
+    <button class="back-to-top" id="back-to-top">
+      <div class="angle-icon"></div>
+    </button>
+    <hr>
+    <div class="media-buttons">
+      <a href="https://www.linkedin.com/in/john-e-nguyen/" type="button" id="linkedin-button" target="_blank">
+      </a>
+      <a href="https://github.com/johnnguyen0215" type="button" id="github-button" target="_blank">
+      </a>
+      <a href="https://www.facebook.com/johnnguyen0215" type="button" id="facebook-button" target="_blank">
+      </a>
+    </div>
+    <div class="licensing">
+      <span>John Nguyen</span>
+      <div class="creative-common">
       </div>
-      <div class="licensing">
-        <span>John Nguyen</span>
-        <div class="creative-common">
-        </div>
-      </div>
-    </footer </div>
+    </div>
+  </footer </div>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 @import 'common/colors';
+@import '../assets/scss/vivify.scss';
 
 #about {
   width: 100%;
@@ -7,7 +8,7 @@
 
 .about-ribbon {
   margin-bottom: 42px;
-  margin-left: -100px;
+  margin-left: -150px;
   position: relative;
   flex: 1 1;
 
@@ -17,13 +18,13 @@
     margin-left: unset;
     width: unset;
     flex-direction: column;
-    top: -100px;
+    top: -150px;
     align-items: center;
   }
 
   .card {
     height: 286px;
-    background-color: $snow-drift;
+    background-color: #DEF2F1;
     position: absolute;
     margin-left: 100px;
     margin-top: -41px;
@@ -32,6 +33,7 @@
     flex-direction: row;
     align-items: center;
     border-radius: unset;
+    border: none;
 
     @media only screen and (max-width: 992px) {
       height: unset;
@@ -85,7 +87,6 @@
 }
 
 .portrait-text-container {
-  visibility: hidden;
   display: flex;
   align-items: center;
   margin-bottom: 120px;
@@ -261,8 +262,8 @@
 
     margin-bottom: 150px;
 
-    animation: rotateInDownRight;
-    animation-duration: 1.5s;
+    animation: spinIn;
+    animation-duration: 1s;
   }
 
   .responsive {
@@ -270,8 +271,8 @@
       margin-left: 13px;
     }
 
-    animation: rotateInUpLeft;
-    animation-duration: 1.5s;
+    animation: spinIn;
+    animation-duration: 1s;
   }
 
   .accessible {
@@ -279,8 +280,8 @@
       margin-left: 18px;
     }
 
-    animation: rotateInDownRight;
-    animation-duration: 1.5s;
+    animation: spinIn;
+    animation-duration: 1s;
   }
 
   .dynamic {
@@ -288,7 +289,7 @@
       margin-left: 23px;
     }
 
-    animation: rotateInUpLeft;
-    animation-duration: 1.5s;
+    animation: spinIn;
+    animation-duration: 1s;
   }
 }

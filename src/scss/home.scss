@@ -23,11 +23,23 @@
     font-weight: bold;
     font-size: 35px;
     margin-bottom: 10px;
+
+    &.-name {
+      animation: fadeInLeft;
+      animation-duration: 1s;
+    }
+
+    &.-title {
+      animation: fadeInRight;
+      animation-duration: 1s;
+    }
   }
 
   .divider {
     width: 320px;
     height: 2px;
     background-color: #fff;
+    animation: fadeIn;
+    animation-duration: 2s;
   }
 }

@@ -43,10 +43,17 @@ class AboutController {
       this.aboutHeading.style.visibility = 'visible';
 
       const heading = document.querySelector('#about .section-header');
-      heading.classList.add('animated', 'fadeInLeft', 'fast');
+      heading.classList.add('flipInX', 'duration-1500');
 
-      const underline = document.querySelector('#about .underline');
-      underline.classList.add('animated', 'fadeInRight', 'fast');
+      const headerDashLeft = document.querySelector('#about .header-dash.-left');
+
+      const headerDashRight = document.querySelector('#about .header-dash.-right');
+
+      console.log(headerDashLeft);
+
+      headerDashLeft.classList.add('animated', 'slideInLeft', 'fast', 'delay-0.5s')
+
+      headerDashRight.classList.add('animated', 'slideInRight', 'fast', 'delay-0.5s');
 
       this.headingAnimationTriggered = true;
     }
