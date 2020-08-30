@@ -5,12 +5,38 @@ class AboutController {
   headingAnimationTriggered = false;
   descriptionAnimationTriggered = false;
   graphAnimationTriggered = false;
+  qualitiesAnimationsTriggered = false;
 
   headingBreakpoint = 850;
   descriptionBreakpoint = 900;
-  graphBreakpoint = 930;
+  graphBreakpoint = 1200;
+  qualitiesBreakpoint = 850;
 
   aboutOffsetTop = document.querySelector('#about').offsetTop - 50;
+
+  skills = {
+    js: {
+      percentage: '85%'
+    },
+    html: {
+      percentage: '90%'
+    },
+    cssSass: {
+      percentage: '90%'
+    },
+    react: {
+      percentage: '85%'
+    },
+    angular: {
+      percentage: '80%',
+    },
+    node: {
+      percentage: '50%'
+    },
+    php: {
+      percentage: '30%'
+    }
+  }
 
   constructor() {
     if (window.innerWidth < 992) {
@@ -49,8 +75,6 @@ class AboutController {
 
       const headerDashRight = document.querySelector('#about .header-dash.-right');
 
-      console.log(headerDashLeft);
-
       headerDashLeft.classList.add('animated', 'slideInLeft', 'fast', 'delay-0.5s')
 
       headerDashRight.classList.add('animated', 'slideInRight', 'fast', 'delay-0.5s');
@@ -82,12 +106,40 @@ class AboutController {
   }
 
   graphAnimations() {
-    return false;
+    Object.keys(this.skills).forEach((skill) => {
+      const skillInfo = this.skills[skill];
+
+      const skillElement = document.querySelector(`.skill-container.${skill} .skill-bar`);
+
+      skillElement.style.width = skillInfo.percentage;
+    });
+  }
+
+  qualitiesAnimations() {
+    if (!this.qualitiesAnimationsTriggered) {
+      const accessibleQuality = document.querySelector('.qualities .accessible');
+      const dynamicQuality = document.querySelector('.qualities .dynamic');
+      const efficientQuality = document.querySelector('.qualities .efficient');
+      const responsiveQuality = document.querySelector('.qualities .responsive');
+
+      const qualities = [accessibleQuality, dynamicQuality, efficientQuality, responsiveQuality];
+
+      qualities.forEach((quality) => {
+        quality.style.visibility = 'visible';
+        quality.classList.add('spinIn');
+      })
+
+      this.qualitiesAnimationsTriggered = true;
+    }
   }
 
   aboutAnimations(pageYOffset) {
     if (pageYOffset > this.headingBreakpoint) {
       this.headingAnimations();
+    }
+
+    if (pageYOffset > this.qualitiesBreakpoint) {
+      this.qualitiesAnimations();
     }
 
     if (pageYOffset > this.descriptionBreakpoint) {

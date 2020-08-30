@@ -90,6 +90,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 120px;
+  visibility: hidden;
 
   @media only screen and (max-width: 992px) {
     flex-direction: column;
@@ -129,48 +130,8 @@
     margin-bottom: 20px;
     display: flex;
 
-    &.js {
-      .skill-bar {
-        transition: 2s width ease-in-out;
-        width: 90%;
-      }
-    }
-
-    &.html {
-      .skill-bar {
-        width: 90%;
-      }
-    }
-
-    &.css {
-      .skill-bar {
-        width: 90%;
-      }
-    }
-
-    &.react {
-      .skill-bar {
-        width: 85%;
-      }
-    }
-
-    &.angular {
-      .skill-bar {
-        width: 80%;
-      }
-    }
-
-
-    &.node {
-      .skill-bar {
-        width: 50%;
-      }
-    }
-
-    &.php {
-      .skill-bar {
-        width: 30%;
-      }
+    .skill-bar {
+      width: 0%;
     }
 
     .skill {
@@ -211,6 +172,12 @@
   font-size: 18px;
   color: white;
   margin-top: 60px;
+  visibility: hidden;
+
+  .spinIn {
+    animation: spinIn;
+    animation-duration: 1s;
+  }
 
   .qualities-container {
     display: flex;
@@ -260,10 +227,9 @@
       margin-left: 28px;
     }
 
-    margin-bottom: 150px;
+    visibility: hidden;
 
-    animation: spinIn;
-    animation-duration: 1s;
+    margin-bottom: 150px;
   }
 
   .responsive {
@@ -271,8 +237,7 @@
       margin-left: 13px;
     }
 
-    animation: spinIn;
-    animation-duration: 1s;
+    visibility: hidden;
   }
 
   .accessible {
@@ -280,8 +245,7 @@
       margin-left: 18px;
     }
 
-    animation: spinIn;
-    animation-duration: 1s;
+    visibility: hidden;
   }
 
   .dynamic {
@@ -289,7 +253,6 @@
       margin-left: 23px;
     }
 
-    animation: spinIn;
-    animation-duration: 1s;
+    visibility: hidden;
   }
 }
