@@ -11,6 +11,8 @@ class MainController {
   animations() {
     const pageYOffset = window.pageYOffset;
     aboutController.aboutAnimations(pageYOffset);
+    projectsController.projectsAnimations(pageYOffset);
+    contactController.contactAnimations(pageYOffset);
   }
 
   constructor() {

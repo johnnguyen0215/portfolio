@@ -7,10 +7,19 @@ class AboutController {
   graphAnimationTriggered = false;
   qualitiesAnimationsTriggered = false;
 
-  headingBreakpoint = 850;
-  descriptionBreakpoint = 900;
-  graphBreakpoint = 1200;
-  qualitiesBreakpoint = 850;
+  animationTriggers = {
+    heading: false,
+    description: false,
+    graph: false,
+    qualities: false
+  }
+
+  breakPoints = {
+    heading: 850,
+    description: 900,
+    graph: 1300,
+    qualities: 850
+  }
 
   aboutOffsetTop = document.querySelector('#about').offsetTop - 50;
 
@@ -65,7 +74,7 @@ class AboutController {
   }
 
   headingAnimations() {
-    if (!this.headingAnimationTriggered) {
+    if (!this.animationTriggers.heading) {
       this.aboutHeading.style.visibility = 'visible';
 
       const heading = document.querySelector('#about .section-header');
@@ -75,16 +84,16 @@ class AboutController {
 
       const headerDashRight = document.querySelector('#about .header-dash.-right');
 
-      headerDashLeft.classList.add('animated', 'slideInLeft', 'fast', 'delay-0.5s')
+      headerDashLeft.classList.add('animated', 'fadeInLeft', 'fast')
 
-      headerDashRight.classList.add('animated', 'slideInRight', 'fast', 'delay-0.5s');
+      headerDashRight.classList.add('animated', 'fadeInRight', 'fast');
 
-      this.headingAnimationTriggered = true;
+      this.animationTriggers.heading = true;
     }
   }
 
   descriptionAnimations() {
-    if (!this.descriptionAnimationTriggered) {
+    if (!this.animationTriggers.description) {
       const portraitTextContainer = document.querySelector(
         '#about .portrait-text-container',
       );
@@ -101,22 +110,35 @@ class AboutController {
 
       ribbonElement.classList.add('animated', this.ribbonAnimation, 'fast');
 
-      this.descriptionAnimationTriggered = true;
+      this.animationTriggers.description = true;
     }
   }
 
   graphAnimations() {
-    Object.keys(this.skills).forEach((skill) => {
-      const skillInfo = this.skills[skill];
+    if (!this.animationTriggers.graph) {
 
-      const skillElement = document.querySelector(`.skill-container.${skill} .skill-bar`);
+      const skillGraph = document.querySelector('.skill-graph');
 
-      skillElement.style.width = skillInfo.percentage;
-    });
+      skillGraph.style.visibility = 'visible';
+
+      skillGraph.classList.add('animated', 'fadeInUp', 'fast');
+
+      setTimeout(() => {
+        Object.keys(this.skills).forEach((skill) => {
+          const skillInfo = this.skills[skill];
+
+          const skillElement = document.querySelector(`.skill-container.${skill} .skill-bar`);
+
+          skillElement.style.width = skillInfo.percentage;
+        });
+
+        this.animationTriggers.graph = true;
+      }, 500);
+    }
   }
 
   qualitiesAnimations() {
-    if (!this.qualitiesAnimationsTriggered) {
+    if (!this.animationTriggers.qualities) {
       const accessibleQuality = document.querySelector('.qualities .accessible');
       const dynamicQuality = document.querySelector('.qualities .dynamic');
       const efficientQuality = document.querySelector('.qualities .efficient');
@@ -129,24 +151,24 @@ class AboutController {
         quality.classList.add('spinIn');
       })
 
-      this.qualitiesAnimationsTriggered = true;
+      this.animationTriggers.qualities = true;
     }
   }
 
   aboutAnimations(pageYOffset) {
-    if (pageYOffset > this.headingBreakpoint) {
+    if (pageYOffset > this.breakPoints.heading) {
       this.headingAnimations();
     }
 
-    if (pageYOffset > this.qualitiesBreakpoint) {
+    if (pageYOffset > this.breakPoints.qualities) {
       this.qualitiesAnimations();
     }
 
-    if (pageYOffset > this.descriptionBreakpoint) {
+    if (pageYOffset > this.breakPoints.description) {
       this.descriptionAnimations();
     }
 
-    if (pageYOffset > this.graphBreakpoint) {
+    if (pageYOffset > this.breakPoints.graph) {
       this.graphAnimations();
     }
   }
