@@ -146,9 +146,12 @@ class AboutController {
 
       const qualities = [accessibleQuality, dynamicQuality, efficientQuality, responsiveQuality];
 
+      let delay = 0;
+
       qualities.forEach((quality) => {
         quality.style.visibility = 'visible';
-        quality.classList.add('spinIn');
+        quality.classList.add('spinIn', `delay-${delay}`);
+        delay += 100;
       })
 
       this.animationTriggers.qualities = true;

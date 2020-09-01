@@ -12,6 +12,7 @@ class ProjectsController {
 
   breakPoints = {
     heading: 2200,
+    projectCards: 2400
   }
 
   animationTriggers = {
@@ -296,9 +297,29 @@ class ProjectsController {
     this.currentOpenProject = '';
   }
 
+  projectCardAnimations() {
+    let delay = 0;
+
+    if (this.projectCardContainers && !this.animationTriggers.projectCards) {
+      this.projectCardContainers.forEach((container) => {
+        container.style.visibility = 'visible';
+
+        container.classList.add('animated', 'slideInUp', `delay-${delay}`);
+
+        delay += 100;
+      })
+    }
+
+    this.animationTriggers.projectCards = true;
+  }
+
   projectsAnimations(pageYOffset) {
     if (pageYOffset > this.breakPoints.heading) {
       this.headingAnimations();
+    }
+
+    if (pageYOffset > this.breakPoints.projectCards) {
+      this.projectCardAnimations();
     }
   }
 }
