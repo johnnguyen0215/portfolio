@@ -1,7 +1,7 @@
 class ContactController {
   breakPoints = {
-    heading: 3000,
-    contactCard: 3200,
+    heading: 2800,
+    contactCard: 3000,
   }
 
   animationTriggers = {
