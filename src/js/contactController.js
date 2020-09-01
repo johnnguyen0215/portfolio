@@ -1,10 +1,12 @@
 class ContactController {
   breakPoints = {
     heading: 3000,
+    contactCard: 3200,
   }
 
   animationTriggers = {
-    heading: false
+    heading: false,
+    contactCard: false,
   }
 
   constructor() { }
@@ -36,9 +38,24 @@ class ContactController {
     }
   }
 
+  contactCardAnimation() {
+    if (!this.animationTriggers.contactCard) {
+      const contactCard = document.querySelector('.contact-card');
+
+      contactCard.style.visibility = 'visible';
+      contactCard.classList.add('contactFlipIn');
+
+      this.animationTriggers.contactCard = true;
+    }
+  }
+
   contactAnimations(pageYOffset) {
     if (pageYOffset > this.breakPoints.heading) {
       this.headingAnimations();
+    }
+
+    if (pageYOffset > this.breakPoints.contactCard) {
+      this.contactCardAnimation();
     }
   }
 }

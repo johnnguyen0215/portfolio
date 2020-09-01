@@ -304,7 +304,7 @@ class ProjectsController {
       this.projectCardContainers.forEach((container) => {
         container.style.visibility = 'visible';
 
-        container.classList.add('animated', 'slideInUp', `delay-${delay}`);
+        container.classList.add('animated', 'fadeInUp', `delay-${delay}`);
 
         delay += 100;
       })

@@ -1,4 +1,5 @@
 @import './common/colors';
+@import '../assets/scss/vivify.scss';
 
 #contact {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -17,6 +18,7 @@
 }
 
 .contact-container {
+  margin-top: 50px;
   width: 100%;
   margin-top: 30px;
   display: flex;
@@ -25,8 +27,13 @@
   .contact-card {
     padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
-    max-width: 500px;
+    width: 500px;
+    visibility: hidden;
+
+    &.contactFlipIn {
+      animation: unfold;
+      animation-duration: 0.5s;
+    }
   }
 
   .contact-form {
