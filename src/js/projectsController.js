@@ -12,7 +12,7 @@ class ProjectsController {
 
   breakPoints = {
     heading: 2200,
-    projectCards: 2400
+    projectCards: 2300
   }
 
   animationTriggers = {
