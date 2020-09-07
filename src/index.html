@@ -138,13 +138,13 @@
                 </p>
                 <p>
                   Want to build something great together?
-                  <a href="/contact">Let's get in touch.</a>
+                  <a id="get-in-touch" href="#">Let's get in touch.</a>
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="skill-graph">
+        <div class=" skill-graph">
           <div class="skill-container js">
             <div class="skill">
               <span class="skill-text">
@@ -163,8 +163,8 @@
             </div>
             <div class="skill-percentage">90%</div>
           </div>
-          <div class="skill-container cssSass">
-            <div class="skill">CSS/SASS</div>
+          <div class="skill-container scss">
+            <div class="skill">SCSS</div>
             <div class="skill-bar-container">
               <div class="skill-bar"></div>
             </div>
@@ -368,80 +368,81 @@
           </div>
         </div>
       </div>
-  </div>
-  </section>
-  <section id="contact">
-    <div class="container">
-      <div class="section-header-container">
-        <div class="header-wrapper">
-          <div class="header-dash -left"></div>
-          <div>
-            <h1 class="section-header">CONTACT</h1>
+    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="section-header-container">
+          <div class="header-wrapper">
+            <div class="header-dash -left"></div>
+            <div>
+              <h1 class="section-header">CONTACT</h1>
+            </div>
+            <div class="header-dash -right"></div>
           </div>
-          <div class="header-dash -right"></div>
+        </div>
+        <div class="contact-container">
+          <div class="contact-card">
+            <form class="contact-form" action="mailto:john.nguyen.git@gmail.com" method="POST"
+              enctype="multipart/form-data" name="contact-form">
+              <div class="form-section">
+                <input class="form-input" type="text" name="name" id="name" required>
+                <label for="name">
+                  Name
+                </label>
+              </div>
+              <div class="form-section">
+                <input class="form-input" type="email" name="email" id="email" required>
+                <label for="email">
+                  Email
+                </label>
+              </div>
+              <div class="form-section">
+                <textarea class="form-input" type="text" name="message" id="message"></textarea>
+                <label for="message">
+                  Message
+                </label>
+              </div>
+              <label for="contact-info">
+                Contact Information
+              </label>
+              <div id="contact-info">
+                <div class="contact-email">
+                  <span>Email: </span>
+                  <a href="mailto:johnnguyen0215@gmail.com">
+                    johnnguyen0215@gmail.com
+                  </a>
+                </div>
+                <div class="contact-phone">
+                  <span>Phone: </span>
+                  <a href="tel:714-248-5859">714-248-5859</a>
+                </div>
+              </div>
+              <input class="ghost-button" type="submit" id="submit"></input>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="contact-container">
-        <div class="contact-card">
-          <form class="contact-form">
-            <div class="form-section">
-              <input class="form-input" type="text" name="name" id="name" required>
-              <label for="name">
-                Name
-              </label>
-            </div>
-            <div class="form-section">
-              <input class="form-input" type="email" name="email" id="email" required>
-              <label for="email">
-                Email
-              </label>
-            </div>
-            <div class="form-section">
-              <textarea class="form-input" type="text" name="message" id="message"></textarea>
-              <label for="message">
-                Message
-              </label>
-            </div>
-            <label for="contact-info">
-              Contact Information
-            </label>
-            <div id="contact-info">
-              <div>
-                <span>Email: </span>
-                <a href="mailto:johnnguyen0215@gmail.com">
-                  johnnguyen0215@gmail.com
-                </a>
-              </div>
-              <div>
-                <span>Phone: </span>
-                <a href="tel:714-248-5859">714-248-5859</a>
-              </div>
-            </div>
-            <input class="ghost-button" type="submit" id="submit"></input>
-          </form>
+    </section>
+    <footer>
+      <button class="back-to-top" id="back-to-top">
+        <div class="angle-icon"></div>
+      </button>
+      <hr>
+      <div class="media-buttons">
+        <a href="https://www.linkedin.com/in/john-e-nguyen/" type="button" id="linkedin-button" target="_blank">
+        </a>
+        <a href="https://github.com/johnnguyen0215" type="button" id="github-button" target="_blank">
+        </a>
+        <a href="https://www.facebook.com/johnnguyen0215" type="button" id="facebook-button" target="_blank">
+        </a>
+      </div>
+      <div class="licensing">
+        <span>John Nguyen</span>
+        <div class="creative-common">
         </div>
       </div>
-    </div>
-  </section>
-  <footer>
-    <button class="back-to-top" id="back-to-top">
-      <div class="angle-icon"></div>
-    </button>
-    <hr>
-    <div class="media-buttons">
-      <a href="https://www.linkedin.com/in/john-e-nguyen/" type="button" id="linkedin-button" target="_blank">
-      </a>
-      <a href="https://github.com/johnnguyen0215" type="button" id="github-button" target="_blank">
-      </a>
-      <a href="https://www.facebook.com/johnnguyen0215" type="button" id="facebook-button" target="_blank">
-      </a>
-    </div>
-    <div class="licensing">
-      <span>John Nguyen</span>
-      <div class="creative-common">
-      </div>
-    </div>
-  </footer </div>
+    </footer>
+  </div>
 </body>
 
 </html>

@@ -7,6 +7,7 @@
   background-size: cover;
   height: 100vh;
   width: 100%;
+  font-family: 'Raleway';
 
   .section-header {
     color: #fff;
@@ -25,9 +26,10 @@
   justify-content: center;
 
   .contact-card {
+    margin-top: 80px;
     padding: 20px;
     background-color: #fff;
-    width: 500px;
+    width: 600px;
     visibility: hidden;
 
     &.contactFlipIn {
@@ -42,7 +44,6 @@
   }
 
   label {
-    font-family: 'Lato';
     font-size: 14pt;
     margin-bottom: unset;
   }

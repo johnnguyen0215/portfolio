@@ -1,3 +1,5 @@
+import contactController from './contactController';
+
 class AboutController {
   portraitAnimation = 'fadeInLeft';
   ribbonAnimation = 'fadeInRight';
@@ -30,7 +32,7 @@ class AboutController {
     html: {
       percentage: '90%'
     },
-    cssSass: {
+    scss: {
       percentage: '90%'
     },
     react: {
@@ -64,6 +66,16 @@ class AboutController {
 
   attachEventListeners() {
     window.addEventListener('resize', this.aboutResizeListener);
+
+    const getInTouchLink = document.querySelector('#get-in-touch');
+    getInTouchLink.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      window.scroll({
+        top: contactController.contactSection.offsetTop - 50,
+        behavior: 'smooth'
+      })
+    });
   }
 
   aboutResizeListener() {
