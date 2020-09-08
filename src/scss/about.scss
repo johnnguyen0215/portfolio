@@ -224,6 +224,12 @@
   }
 
   .efficient {
+    @media only screen and (max-width: 600px) {
+      .diamond {
+        transform: rotate(45deg) translate(-36px, 47px);
+      }
+    }
+
     .quality-text {
       margin-left: 28px;
     }
@@ -234,6 +240,12 @@
   }
 
   .responsive {
+    @media only screen and (max-width: 600px) {
+      .diamond {
+        transform: rotate(45deg) translate(85px, 5px);
+      }
+    }
+
     .quality-text {
       margin-left: 13px;
     }
@@ -242,6 +254,12 @@
   }
 
   .accessible {
+    @media only screen and (max-width: 600px) {
+      .diamond {
+        transform: rotate(45deg) translate(131px, 2px);
+      }
+    }
+
     .quality-text {
       margin-left: 18px;
     }
@@ -250,6 +268,12 @@
   }
 
   .dynamic {
+    @media only screen and (max-width: 600px) {
+      .diamond {
+        transform: rotate(45deg) translate(-83px, 48px);
+      }
+    }
+
     .quality-text {
       margin-left: 23px;
     }

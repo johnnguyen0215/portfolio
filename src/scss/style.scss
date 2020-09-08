@@ -94,7 +94,7 @@ body {
 .diamond {
   height: 200px;
   width: 200px;
-  transform: rotate(45deg) !important;
+  transform: rotate(45deg);
   box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }

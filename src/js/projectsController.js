@@ -324,7 +324,7 @@ class ProjectsController {
     if (!this.animationTriggers.projectsContainer && this.projectsContainer) {
       const projectContainerTop = this.projectsContainer.getBoundingClientRect().top;
 
-      if (projectContainerTop <= 500) {
+      if (projectContainerTop <= 600) {
         this.projectCardAnimations();
       }
     }
