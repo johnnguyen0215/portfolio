@@ -10,13 +10,10 @@ class ProjectsController {
   activeSelector = null;
   projectsOffsetTop = document.querySelector('#projects').offsetTop - 50;
 
-  breakPoints = {
-    heading: 2200,
-    projectCards: 2300
-  }
 
   animationTriggers = {
-    heading: false
+    heading: false,
+    projectsContainer: false,
   }
 
   projectData = {
@@ -75,23 +72,25 @@ class ProjectsController {
     return document.querySelector('#projects .section-header-container');
   }
 
+  get projectsContainer() {
+    return document.querySelector('.projects-container');
+  }
+
   headingAnimations() {
-    if (!this.animationTriggers.heading) {
-      this.projectsHeading.style.visibility = 'visible';
+    this.projectsHeading.style.visibility = 'visible';
 
-      const heading = document.querySelector('#projects .section-header');
-      heading.classList.add('flipInX', 'duration-1500');
+    const heading = document.querySelector('#projects .section-header');
+    heading.classList.add('flipInX', 'duration-1500');
 
-      const headerDashLeft = document.querySelector('#projects .header-dash.-left');
+    const headerDashLeft = document.querySelector('#projects .header-dash.-left');
 
-      const headerDashRight = document.querySelector('#projects .header-dash.-right');
+    const headerDashRight = document.querySelector('#projects .header-dash.-right');
 
-      headerDashLeft.classList.add('animated', 'fadeInLeft', 'fast')
+    headerDashLeft.classList.add('animated', 'fadeInLeft', 'fast')
 
-      headerDashRight.classList.add('animated', 'fadeInRight', 'fast');
+    headerDashRight.classList.add('animated', 'fadeInRight', 'fast');
 
-      this.animationTriggers.heading = true;
-    }
+    this.animationTriggers.heading = true;
   }
 
   attachEventListeners() {
@@ -300,7 +299,7 @@ class ProjectsController {
   projectCardAnimations() {
     let delay = 0;
 
-    if (this.projectCardContainers && !this.animationTriggers.projectCards) {
+    if (this.projectCardContainers) {
       this.projectCardContainers.forEach((container) => {
         container.style.visibility = 'visible';
 
@@ -313,13 +312,21 @@ class ProjectsController {
     this.animationTriggers.projectCards = true;
   }
 
-  projectsAnimations(pageYOffset) {
-    if (pageYOffset > this.breakPoints.heading) {
-      this.headingAnimations();
+  projectsAnimations() {
+    if (!this.animationTriggers.heading && this.projectsHeading) {
+      const projectsHeadingTop = this.projectsHeading.getBoundingClientRect().top;
+
+      if (projectsHeadingTop <= 500) {
+        this.headingAnimations();
+      }
     }
 
-    if (pageYOffset > this.breakPoints.projectCards) {
-      this.projectCardAnimations();
+    if (!this.animationTriggers.projectsContainer && this.projectsContainer) {
+      const projectContainerTop = this.projectsContainer.getBoundingClientRect().top;
+
+      if (projectContainerTop <= 500) {
+        this.projectCardAnimations();
+      }
     }
   }
 }

@@ -54,6 +54,8 @@ class AboutController {
       this.portraitAnimation = 'fadeInDown';
       this.ribbonAnimation = 'fadeInUp';
     }
+
+
   }
 
   get aboutSection() {
@@ -62,6 +64,18 @@ class AboutController {
 
   get aboutHeading() {
     return document.querySelector('#about .section-header-container');
+  }
+
+  get qualities() {
+    return document.querySelector('.qualities');
+  }
+
+  get description() {
+    return document.querySelector('.portrait-text-container');
+  }
+
+  get graph() {
+    return document.querySelector('.skill-graph');
   }
 
   attachEventListeners() {
@@ -105,86 +119,97 @@ class AboutController {
   }
 
   descriptionAnimations() {
-    if (!this.animationTriggers.description) {
-      const portraitTextContainer = document.querySelector(
-        '#about .portrait-text-container',
-      );
+    const portraitTextContainer = document.querySelector(
+      '#about .portrait-text-container',
+    );
 
-      portraitTextContainer.style.visibility = 'visible';
+    portraitTextContainer.style.visibility = 'visible';
 
-      const portraitElement = document.querySelector(
-        '#about .portrait-container',
-      );
+    const portraitElement = document.querySelector(
+      '#about .portrait-container',
+    );
 
-      portraitElement.classList.add('animated', this.portraitAnimation, 'fast');
+    portraitElement.classList.add('animated', this.portraitAnimation, 'fast');
 
-      const ribbonElement = document.querySelector('#about .about-ribbon');
+    const ribbonElement = document.querySelector('#about .about-ribbon');
 
-      ribbonElement.classList.add('animated', this.ribbonAnimation, 'fast');
+    ribbonElement.classList.add('animated', this.ribbonAnimation, 'fast');
 
-      this.animationTriggers.description = true;
-    }
+    this.animationTriggers.description = true;
   }
 
   graphAnimations() {
-    if (!this.animationTriggers.graph) {
 
-      const skillGraph = document.querySelector('.skill-graph');
+    const skillGraph = document.querySelector('.skill-graph');
 
-      skillGraph.style.visibility = 'visible';
+    skillGraph.style.visibility = 'visible';
 
-      skillGraph.classList.add('animated', 'fadeInUp', 'fast');
+    skillGraph.classList.add('animated', 'fadeInUp', 'fast');
 
-      setTimeout(() => {
-        Object.keys(this.skills).forEach((skill) => {
-          const skillInfo = this.skills[skill];
+    setTimeout(() => {
+      Object.keys(this.skills).forEach((skill) => {
+        const skillInfo = this.skills[skill];
 
-          const skillElement = document.querySelector(`.skill-container.${skill} .skill-bar`);
+        const skillElement = document.querySelector(`.skill-container.${skill} .skill-bar`);
 
-          skillElement.style.width = skillInfo.percentage;
-        });
+        skillElement.style.width = skillInfo.percentage;
+      });
 
-        this.animationTriggers.graph = true;
-      }, 500);
-    }
+      this.animationTriggers.graph = true;
+    }, 500);
   }
 
   qualitiesAnimations() {
-    if (!this.animationTriggers.qualities) {
-      const accessibleQuality = document.querySelector('.qualities .accessible');
-      const dynamicQuality = document.querySelector('.qualities .dynamic');
-      const efficientQuality = document.querySelector('.qualities .efficient');
-      const responsiveQuality = document.querySelector('.qualities .responsive');
+    const accessibleQuality = document.querySelector('.qualities .accessible');
+    const dynamicQuality = document.querySelector('.qualities .dynamic');
+    const efficientQuality = document.querySelector('.qualities .efficient');
+    const responsiveQuality = document.querySelector('.qualities .responsive');
 
-      const qualities = [accessibleQuality, dynamicQuality, efficientQuality, responsiveQuality];
+    const qualities = [accessibleQuality, dynamicQuality, efficientQuality, responsiveQuality];
 
-      let delay = 0;
+    let delay = 0;
 
-      qualities.forEach((quality) => {
-        quality.style.visibility = 'visible';
-        quality.classList.add('spinIn', `delay-${delay}`);
-        delay += 100;
-      })
+    qualities.forEach((quality) => {
+      quality.style.visibility = 'visible';
+      quality.classList.add('spinIn', `delay-${delay}`);
+      delay += 100;
+    })
 
-      this.animationTriggers.qualities = true;
-    }
+    this.animationTriggers.qualities = true;
   }
 
-  aboutAnimations(pageYOffset) {
-    if (pageYOffset > this.breakPoints.heading) {
-      this.headingAnimations();
+  aboutAnimations() {
+    if (!this.animationTriggers.heading && this.aboutHeading) {
+      const aboutHeadingTop = this.aboutHeading.getBoundingClientRect().top;
+
+      if (aboutHeadingTop <= 500) {
+        this.headingAnimations();
+      }
     }
 
-    if (pageYOffset > this.breakPoints.qualities) {
-      this.qualitiesAnimations();
+
+    if (!this.animationTriggers.qualities && this.qualities) {
+      const qualitiesTop = this.qualities.getBoundingClientRect().top;
+
+      if (qualitiesTop <= 500) {
+        this.qualitiesAnimations();
+      }
     }
 
-    if (pageYOffset > this.breakPoints.description) {
-      this.descriptionAnimations();
+    if (!this.animationTriggers.description && this.description) {
+      const descriptionTop = this.description.getBoundingClientRect().top;
+
+      if (descriptionTop <= 800) {
+        this.descriptionAnimations();
+      }
     }
 
-    if (pageYOffset > this.breakPoints.graph) {
-      this.graphAnimations();
+    if (!this.animationTriggers.graph && this.graph) {
+      const graphTop = this.graph.getBoundingClientRect().top;
+
+      if (graphTop <= 900) {
+        this.graphAnimations();
+      }
     }
   }
 }

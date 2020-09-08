@@ -10,8 +10,8 @@ import contactController from './contactController';
 class MainController {
   animations() {
     const pageYOffset = window.pageYOffset;
-    aboutController.aboutAnimations(pageYOffset);
-    projectsController.projectsAnimations(pageYOffset);
+    aboutController.aboutAnimations();
+    projectsController.projectsAnimations();
     contactController.contactAnimations(pageYOffset);
   }
 
