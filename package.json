@@ -4,8 +4,8 @@
   "description": "John Nguyen's portfolio app",
   "main": "dist/main.js",
   "scripts": {
-    "test": "test",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "test": "node -e \"console.log('No automated tests configured')\"",
+    "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -24,11 +24,10 @@
   },
   "homepage": "https://github.com/johnnguyen0215/portfolio#readme",
   "dependencies": {
-    "@babel/runtime": "^7.10.2",
+    "@babel/runtime": "^7.29.10",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
-    "camelcase": "^6.0.0",
-    "node-sass": "^4.13.0"
+    "camelcase": "^6.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -36,24 +35,23 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^10.1.1",
     "babel-polyfill": "^6.26.0",
     "copy-webpack-plugin": "^6.0.2",
-    "css-loader": "^3.4.2",
+    "css-loader": "^7.1.5",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-import": "^2.20.1",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.10.0",
+    "html-webpack-plugin": "^5.6.8",
+    "mini-css-extract-plugin": "^2.10.2",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.1.3",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
-    "webpack-merge": "^4.2.2"
+    "sass": "^1.107.1",
+    "sass-loader": "^16.0.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.7",
+    "webpack-merge": "^6.0.1"
   }
 }
